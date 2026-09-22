@@ -68,15 +68,16 @@
       summary.addEventListener("click", function (ev) {
         ev.preventDefault();
         if (running) running.cancel();
+        body.style.overflow = "hidden";
         if (d.open) {
           var h = body.offsetHeight;
           running = body.animate([{ height: h + "px", opacity: 1 }, { height: "0px", opacity: 0 }], { duration: 260, easing: "cubic-bezier(0.2,0.7,0.2,1)" });
-          running.onfinish = function () { d.open = false; body.style.height = ""; running = null; };
+          running.onfinish = function () { d.open = false; body.style.height = ""; body.style.overflow = ""; running = null; };
         } else {
           d.open = true;
           var target = body.offsetHeight;
           running = body.animate([{ height: "0px", opacity: 0 }, { height: target + "px", opacity: 1 }], { duration: 320, easing: "cubic-bezier(0.2,0.7,0.2,1)" });
-          running.onfinish = function () { body.style.height = ""; running = null; };
+          running.onfinish = function () { body.style.height = ""; body.style.overflow = ""; running = null; };
         }
       });
     });
