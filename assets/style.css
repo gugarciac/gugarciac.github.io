@@ -278,3 +278,32 @@ img { max-width: 100%; }
 .entry__links { display: flex; flex-wrap: wrap; gap: var(--spacing-8) var(--spacing-24); margin-top: var(--spacing-8); }
 .entry__links a { font-size: var(--text-body); }
 .entry__links a::after { content: " ›"; }
+
+/* ── trajetória ── */
+.timeline { display: grid; gap: var(--element-gap); grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr)); }
+.timeline li { display: flex; flex-direction: column; padding: var(--spacing-32) var(--card-padding); border-radius: var(--radius-cards); background: var(--color-gallery-white); }
+.timeline__when { font-family: var(--font-display); font-size: var(--text-feature-heading); line-height: var(--leading-feature-heading); font-weight: var(--font-weight-semibold); letter-spacing: -0.01em; font-variant-numeric: tabular-nums; }
+.timeline h3 { margin-top: var(--spacing-24); font-family: var(--font-display); font-size: var(--text-product-kicker); line-height: 1.19; letter-spacing: 0.011em; }
+.timeline p { margin-top: var(--spacing-8); color: var(--color-slate); }
+
+/* ── ferramentas ── */
+.sheet > div { display: grid; grid-template-columns: 220px minmax(0, 1fr); gap: var(--spacing-8) var(--spacing-28); padding-block: var(--spacing-24); border-top: 1px solid var(--color-hairline-silver); }
+.sheet > div:last-child { border-bottom: 1px solid var(--color-hairline-silver); }
+.sheet dt { font-family: var(--font-display); font-size: var(--text-product-kicker); line-height: 1.19; letter-spacing: 0.011em; font-weight: var(--font-weight-semibold); }
+.sheet dd { margin: 0; max-width: 40em; color: var(--color-slate); }
+@media (max-width: 733px) { .sheet > div { grid-template-columns: 1fr; } }
+
+/* ── certificados ── */
+.certs { display: grid; gap: var(--spacing-12); }
+.cert {
+  display: grid; grid-template-columns: 5rem minmax(0, 1fr) auto; align-items: center; gap: var(--spacing-8) var(--spacing-24);
+  padding: var(--spacing-20) var(--card-padding); border-radius: var(--radius-2xl); background: var(--color-gallery-white);
+}
+.cert__year { font-family: var(--font-display); font-size: var(--text-product-kicker); font-weight: var(--font-weight-semibold); font-variant-numeric: tabular-nums; }
+.cert__name { font-weight: var(--font-weight-semibold); }
+.cert__org { margin-top: 2px; font-size: var(--text-body-small); letter-spacing: var(--tracking-body-small); color: var(--color-slate); }
+.cert__link { font-size: var(--text-body); white-space: nowrap; }
+.cert__link::after { content: " ›"; }
+@media (max-width: 599px) {
+  .cert { grid-template-columns: 1fr; }
+}
