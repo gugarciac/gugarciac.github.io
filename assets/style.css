@@ -1,61 +1,81 @@
 /* ─────────────────────────────────────────────────────────────
    Gustavo Garcia · portfólio
-   Tokens: papel frio, tinta escura, um único acento cobalto.
-   Tipos: Newsreader (títulos), IBM Plex Sans (texto), IBM Plex Mono (dados).
+   Um caderno de designer: papel lilás, tinta roxa, tomate de acento,
+   manteiga e menta como marca-texto. Recursive com eixo casual para
+   quase tudo, Instrument Serif itálico para dar ênfase, Caveat para
+   os recados à mão, Fragment Mono para dados.
    ───────────────────────────────────────────────────────────── */
 
 :root {
-  --paper: #eef0f3;
-  --paper-2: #e3e6eb;
-  --paper-3: #d8dce3;
-  --ink: #151a21;
-  --ink-2: #4a5260;
-  --ink-3: #7b8391;
-  --rule: #c9ceD6;
-  --rule-strong: #9aa2ae;
-  --accent: #1f3acc;
-  --accent-soft: rgba(31, 58, 204, 0.10);
+  --paper: #f3f1f8;
+  --paper-2: #e9e6f2;
+  --paper-3: #ddd9ea;
+  --ink: #1b1a22;
+  --ink-2: #4d4a5c;
+  --ink-3: #807b95;
+  --rule: #d6d1e4;
+  --rule-strong: #a7a1bd;
+  --accent: #ff5b3a;
+  --accent-soft: rgba(255, 91, 58, 0.12);
   --on-accent: #ffffff;
+  --butter: #ffd84d;
+  --mint: #6fdcb5;
+  --cobalt: #3048ff;
+  --tape: rgba(255, 216, 77, 0.55);
+  --shadow: 0 1px 0 rgba(27, 26, 34, 0.04), 0 10px 30px -12px rgba(27, 26, 34, 0.28);
 
-  --serif: "Newsreader", "Iowan Old Style", "Palatino Linotype", Georgia, serif;
-  --sans: "IBM Plex Sans", "Helvetica Neue", Arial, sans-serif;
-  --mono: "IBM Plex Mono", "SFMono-Regular", Menlo, Consolas, monospace;
+  --display: "Recursive", "Trebuchet MS", system-ui, sans-serif;
+  --serif: "Instrument Serif", "Iowan Old Style", Georgia, serif;
+  --sans: "Recursive", "Helvetica Neue", Arial, sans-serif;
+  --mono: "Fragment Mono", "SFMono-Regular", Menlo, Consolas, monospace;
+  --hand: "Caveat", "Bradley Hand", "Segoe Print", cursive;
 
   --gutter: clamp(16px, 4vw, 48px);
   --measure: 62ch;
   --ease: cubic-bezier(0.2, 0.7, 0.2, 1);
+  --boing: cubic-bezier(0.34, 1.56, 0.64, 1);
 
   color-scheme: light;
 }
 
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) {
-    --paper: #101317;
-    --paper-2: #161a20;
-    --paper-3: #1d222a;
-    --ink: #e8ebf0;
-    --ink-2: #aab1bd;
-    --ink-3: #78818f;
-    --rule: #2a3039;
-    --rule-strong: #46505d;
-    --accent: #7e93ff;
-    --accent-soft: rgba(126, 147, 255, 0.14);
-    --on-accent: #0d1020;
+    --paper: #16141c;
+    --paper-2: #1e1b27;
+    --paper-3: #272333;
+    --ink: #f1eff8;
+    --ink-2: #bdb8cf;
+    --ink-3: #8a849f;
+    --rule: #2f2b3b;
+    --rule-strong: #4d4760;
+    --accent: #ff7a5c;
+    --accent-soft: rgba(255, 122, 92, 0.16);
+    --on-accent: #1b1a22;
+    --butter: #ffe07a;
+    --mint: #7fe6c1;
+    --cobalt: #8b9bff;
+    --tape: rgba(255, 224, 122, 0.32);
+    --shadow: 0 1px 0 rgba(0, 0, 0, 0.3), 0 14px 34px -14px rgba(0, 0, 0, 0.7);
     color-scheme: dark;
   }
 }
 :root[data-theme="dark"] {
-  --paper: #101317;
-  --paper-2: #161a20;
-  --paper-3: #1d222a;
-  --ink: #e8ebf0;
-  --ink-2: #aab1bd;
-  --ink-3: #78818f;
-  --rule: #2a3039;
-  --rule-strong: #46505d;
-  --accent: #7e93ff;
-  --accent-soft: rgba(126, 147, 255, 0.14);
-  --on-accent: #0d1020;
+  --paper: #16141c;
+  --paper-2: #1e1b27;
+  --paper-3: #272333;
+  --ink: #f1eff8;
+  --ink-2: #bdb8cf;
+  --ink-3: #8a849f;
+  --rule: #2f2b3b;
+  --rule-strong: #4d4760;
+  --accent: #ff7a5c;
+  --accent-soft: rgba(255, 122, 92, 0.16);
+  --on-accent: #1b1a22;
+  --butter: #ffe07a;
+  --mint: #7fe6c1;
+  --cobalt: #8b9bff;
+  --tape: rgba(255, 224, 122, 0.32);
+  --shadow: 0 1px 0 rgba(0, 0, 0, 0.3), 0 14px 34px -14px rgba(0, 0, 0, 0.7);
   color-scheme: dark;
 }
 
@@ -73,8 +93,10 @@ body {
   font-size: 1rem;
   line-height: 1.55;
   font-feature-settings: "kern", "liga";
+  font-variation-settings: "CASL" 0.3;
   -webkit-font-smoothing: antialiased;
 }
+::selection { background: var(--butter); color: #1b1a22; }
 a { color: inherit; text-decoration-color: var(--rule-strong); text-underline-offset: 0.18em; }
 a:hover { color: var(--accent); text-decoration-color: currentColor; }
 :focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 2px; }
