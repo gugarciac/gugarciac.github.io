@@ -8,36 +8,15 @@
   var root = document.documentElement;
   var reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-  /* ── relógio e data no fuso de São Paulo ── */
+  /* ── relógio no fuso de São Paulo ── */
   var clock = document.getElementById("relogio");
-  var today = document.getElementById("data-hoje");
   var fmtTime = new Intl.DateTimeFormat("pt-BR", { hour: "2-digit", minute: "2-digit", timeZone: "America/Sao_Paulo" });
-  var hello = document.getElementById("saudacao");
-  var fmtHour = new Intl.DateTimeFormat("pt-BR", { hour: "numeric", hourCycle: "h23", timeZone: "America/Sao_Paulo" });
-  var fmtDate = new Intl.DateTimeFormat("pt-BR", { weekday: "long", day: "numeric", month: "long", year: "numeric", timeZone: "America/Sao_Paulo" });
   function tick() {
     var now = new Date();
     if (clock) { clock.textContent = fmtTime.format(now); clock.dateTime = now.toISOString(); }
-    if (today && !today.dataset.set) { today.textContent = fmtDate.format(now); today.dateTime = now.toISOString().slice(0, 10); today.dataset.set = "1"; }
-    if (hello) {
-      var h = Number(fmtHour.format(now));
-      hello.textContent = h >= 5 && h < 12 ? "bom dia" : h >= 12 && h < 18 ? "boa tarde" : h >= 18 ? "boa noite" : "já passou da hora de dormir";
-    }
   }
   tick();
   setInterval(tick, 15000);
-
-  /* ── o marca-texto do título troca de cor a cada clique ── */
-  var mark = document.querySelector(".hero h1 mark");
-  if (mark) {
-    var tints = ["var(--butter)", "var(--mint)", "#c9b8ff", "#ffb3a3"];
-    var n = 0;
-    mark.title = "clica";
-    mark.addEventListener("click", function () {
-      n = (n + 1) % tints.length;
-      mark.style.setProperty("--hl", tints[n]);
-    });
-  }
 
   /* ── tema ── */
   var button = document.getElementById("tema");
