@@ -113,6 +113,17 @@
     sync();
   }
 
+  /* ── entrada das seções: reserva para navegadores sem animação ligada à rolagem ── */
+  var scrollDriven = window.CSS && CSS.supports && CSS.supports("animation-timeline: view()");
+  if (!reduceMotion && !scrollDriven && "IntersectionObserver" in window) {
+    var targets = document.querySelectorAll(".section__head, .hl, .hl__controls, .reveal, .entry, .timeline li, .sheet > div, .contact .wrap > *, .cert");
+    var seen = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add("is-in"); seen.unobserve(e.target); } });
+    }, { rootMargin: "0px 0px -8% 0px" });
+    targets.forEach(function (el) { el.setAttribute("data-reveal", ""); seen.observe(el); });
+    document.documentElement.classList.add("io-reveal");
+  }
+
   /* ── endereço com #projeto abre o projeto ── */
   if (location.hash) {
     var target = document.getElementById(location.hash.slice(1));
