@@ -663,6 +663,8 @@ time { font-variant-numeric: tabular-nums; }
   margin-inline: auto;
 }
 
+.colophon__hi { margin-top: 0.4rem; font-family: var(--hand); font-size: 1.5rem; color: var(--accent); transform: rotate(-2deg); transform-origin: left; justify-self: start; }
+
 /* ── movimento ── */
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
