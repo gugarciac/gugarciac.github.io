@@ -83,6 +83,36 @@
     try { history.replaceState(null, "", "#" + art.id); } catch (e) {}
   });
 
+  /* ── carrossel de destaques ── */
+  var scroller = document.querySelector(".hl");
+  if (scroller) {
+    var cards = Array.prototype.slice.call(scroller.querySelectorAll(".hl__card"));
+    var dots = Array.prototype.slice.call(document.querySelectorAll(".hl__dot"));
+    var navs = document.querySelectorAll(".hl__nav");
+    var step = function () { return cards.length > 1 ? cards[1].offsetLeft - cards[0].offsetLeft : scroller.clientWidth; };
+    var index = function () { return Math.round(scroller.scrollLeft / step()); };
+    var go = function (i) {
+      i = Math.max(0, Math.min(cards.length - 1, i));
+      scroller.scrollTo({ left: i * step(), behavior: reduceMotion ? "auto" : "smooth" });
+    };
+    var sync = function () {
+      var atStart = scroller.scrollLeft <= 4;
+      var atEnd = scroller.scrollLeft + scroller.clientWidth >= scroller.scrollWidth - 4;
+      var i = atEnd ? cards.length - 1 : index();
+      dots.forEach(function (d, k) { if (k === i) d.setAttribute("aria-current", "true"); else d.removeAttribute("aria-current"); });
+      navs.forEach(function (b) {
+        var off = Number(b.getAttribute("data-dir")) < 0 ? atStart : atEnd;
+        b.setAttribute("aria-disabled", off ? "true" : "false");
+      });
+    };
+    navs.forEach(function (b) { b.addEventListener("click", function () { go(index() + Number(b.getAttribute("data-dir"))); }); });
+    dots.forEach(function (d, k) { d.addEventListener("click", function () { go(k); }); });
+    var raf = 0;
+    scroller.addEventListener("scroll", function () { cancelAnimationFrame(raf); raf = requestAnimationFrame(sync); }, { passive: true });
+    window.addEventListener("resize", sync);
+    sync();
+  }
+
   /* ── endereço com #projeto abre o projeto ── */
   if (location.hash) {
     var target = document.getElementById(location.hash.slice(1));
