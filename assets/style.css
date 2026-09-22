@@ -249,7 +249,7 @@ time { font-variant-numeric: tabular-nums; }
 .section__meta { font-family: var(--mono); font-size: 0.75rem; color: var(--ink-3); }
 
 /* ── livro de projetos ── */
-.ledger { border-top: 1px solid var(--rule-strong); }
+.ledger { border-top: 1px solid var(--rule-strong); container: ledger / inline-size; }
 .entry { border-bottom: 1px solid var(--rule); }
 .entry details { position: relative; }
 .entry summary {
@@ -301,8 +301,10 @@ time { font-variant-numeric: tabular-nums; }
 .entry details[open] .entry__toggle::after { transform: translate(-50%, -50%) scaleY(0); }
 
 .entry__thumb { display: none; }
-@media (min-width: 720px) {
-  /* tablet e notebook pequeno: o ano fica acima do título, a miniatura à direita */
+/* O layout dos projetos responde à largura da própria lista, não da tela:
+   com o menu lateral aberto a lista é mais estreita que a janela. */
+@container ledger (min-width: 34rem) {
+  /* lista média: o ano fica acima do título, a miniatura à direita */
   .entry summary {
     grid-template-columns: minmax(0, 1fr) 10rem auto;
     grid-template-areas:
@@ -334,8 +336,8 @@ time { font-variant-numeric: tabular-nums; }
   .entry summary:hover .entry__thumb img { transform: scale(1.04); }
   .entry details[open] .entry__thumb { opacity: 0; }
 }
-@media (min-width: 1280px) {
-  /* telas largas: o ano ganha coluna própria, como num livro de registros */
+@container ledger (min-width: 50rem) {
+  /* lista larga: o ano ganha coluna própria, como num livro de registros */
   .entry summary {
     grid-template-columns: 9.5rem minmax(0, 1fr) 11rem auto;
     grid-template-areas:
@@ -349,12 +351,14 @@ time { font-variant-numeric: tabular-nums; }
 
 .entry__body { overflow: hidden; }
 .entry__grid { display: grid; gap: 2rem; padding: 0.25rem 0 2.25rem; }
-@media (min-width: 720px) {
-  .entry__side { max-width: var(--measure); }
+.entry__side { max-width: var(--measure); }
+@container ledger (min-width: 50rem) {
+  .entry__grid { grid-template-columns: 9.5rem minmax(0, 1fr); gap: 1.75rem 2rem; }
+  .entry__grid > * { grid-column: 2; }
 }
-@media (min-width: 1280px) {
-  .entry__grid { grid-template-columns: 9.5rem minmax(0, 1fr) 19rem; gap: 1.5rem 2rem; }
-  .entry__grid > .entry__text { grid-column: 2; }
+@container ledger (min-width: 60rem) {
+  /* só quando sobra espaço a ficha vai para o lado do texto */
+  .entry__grid { grid-template-columns: 9.5rem minmax(0, 1fr) 22rem; }
   .entry__grid > .entry__side { grid-column: 3; max-width: none; }
   .entry__grid > .shot, .entry__grid > .shots-strip { grid-column: 2 / -1; }
 }
