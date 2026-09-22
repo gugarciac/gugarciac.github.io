@@ -32,8 +32,19 @@
     });
   }
 
+  /* ── certificados: a seção só aparece quando houver itens ── */
+  var certs = document.querySelectorAll("#certificados .cert");
+  if (certs.length) {
+    var sec = document.getElementById("certificados");
+    var link = document.querySelector("[data-certs-link]");
+    var meta = document.getElementById("certificados-meta");
+    if (sec) sec.hidden = false;
+    if (link) link.hidden = false;
+    if (meta) meta.textContent = certs.length + (certs.length === 1 ? " certificado" : " certificados") + " · os mais recentes primeiro";
+  }
+
   /* ── índice lateral segue a seção visível ── */
-  var links = Array.prototype.slice.call(document.querySelectorAll("[data-index]"));
+  var links = Array.prototype.slice.call(document.querySelectorAll("[data-index]:not([hidden])"));
   var sections = links.map(function (a) { return document.querySelector(a.getAttribute("href")); }).filter(Boolean);
   if ("IntersectionObserver" in window && sections.length) {
     var current = null;

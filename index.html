@@ -44,6 +44,7 @@
       <a href="#projetos" data-index>Projetos</a>
       <a href="#trajetoria" data-index>Trajetória</a>
       <a href="#ficha" data-index>Ficha técnica</a>
+      <a href="#certificados" data-index data-certs-link hidden>Certificados</a>
       <a href="#contato" data-index>Contato</a>
     </nav>
 
@@ -500,6 +501,27 @@ lista · inclui · remove
           <dd>Produto de ponta a ponta. Entrego todo dia, meço, endureço e repito. Documento no README o que a próxima pessoa precisa saber para operar sem mim.</dd>
         </div>
       </dl>
+    </section>
+
+    <!-- ───────────── Certificados ─────────────
+         A seção aparece sozinha quando houver pelo menos um <li class="cert">.
+         Modelo de item:
+         <li class="cert">
+           <span class="cert__year">2025</span>
+           <div class="cert__main">
+             <p class="cert__name">Nome do curso</p>
+             <p class="cert__org">Instituição · carga horária</p>
+           </div>
+           <a class="cert__link" href="assets/certificados/arquivo.pdf" target="_blank" rel="noopener">Ver certificado</a>
+         </li>
+    -->
+    <section class="section" id="certificados" aria-labelledby="certificados-titulo" hidden>
+      <header class="section__head">
+        <h2 id="certificados-titulo">Certificados</h2>
+        <p class="section__meta" id="certificados-meta">cursos e formações</p>
+      </header>
+      <ol class="certs">
+      </ol>
     </section>
 
     <!-- ───────────── Contato ───────────── -->

@@ -418,6 +418,30 @@ time { font-variant-numeric: tabular-nums; }
   .sheet > div { grid-template-columns: 1fr; gap: 0.3rem; }
 }
 
+/* ── certificados ── */
+.certs { display: grid; border-top: 1px solid var(--rule-strong); }
+.cert {
+  display: grid;
+  grid-template-columns: 9.5rem minmax(0, 1fr) auto;
+  gap: 0.25rem 1.5rem;
+  align-items: baseline;
+  padding: 1rem 0;
+  border-bottom: 1px solid var(--rule);
+}
+.cert__year { font-family: var(--serif); font-size: 1.35rem; line-height: 1; font-variant-numeric: tabular-nums; }
+.cert__name { font-family: var(--serif); font-size: 1.2rem; line-height: 1.25; }
+.cert__org { margin-top: 0.2rem; font-family: var(--mono); font-size: 0.74rem; color: var(--ink-3); }
+.cert__link {
+  font-family: var(--mono); font-size: 0.75rem; white-space: nowrap;
+  padding: 0.4rem 0.75rem; border: 1px solid var(--rule-strong); text-decoration: none;
+  transition: background-color 0.2s, color 0.2s, border-color 0.2s;
+}
+.cert__link:hover { background: var(--accent); border-color: var(--accent); color: var(--on-accent); }
+@media (max-width: 719px) {
+  .cert { grid-template-columns: 4.5rem minmax(0, 1fr); }
+  .cert__link { grid-column: 2; justify-self: start; margin-top: 0.5rem; }
+}
+
 /* ── contato ── */
 .section--contact { border-bottom: 0; }
 .contact__lede { max-width: var(--measure); font-family: var(--serif); font-size: clamp(1.3rem, 2.4vw, 1.8rem); line-height: 1.3; }
