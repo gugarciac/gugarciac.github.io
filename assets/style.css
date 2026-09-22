@@ -260,7 +260,7 @@ time { font-variant-numeric: tabular-nums; }
   color: var(--accent);
 }
 .hero h1 mark {
-  color: inherit;
+  color: #1b1a22;
   padding: 0 0.08em;
   background: linear-gradient(176deg, transparent 52%, var(--hl, var(--butter)) 52%, var(--hl, var(--butter)) 90%, transparent 90%);
   cursor: pointer;
@@ -351,7 +351,7 @@ time { font-variant-numeric: tabular-nums; }
   font-size: clamp(2.2rem, 4.4vw, 3.3rem);
   line-height: 1;
   letter-spacing: -0.01em;
-  padding-bottom: 0.3em;
+  padding: 0 0.12em 0.3em 0;
 }
 .section__head h2::after {
   content: "";
@@ -645,6 +645,9 @@ time { font-variant-numeric: tabular-nums; }
   transition: padding-left 0.3s var(--ease);
 }
 .contact__list a:hover { padding-left: 0.4rem; }
+@media (max-width: 719px) {
+  .contact__list a { grid-template-columns: 1fr; gap: 0.15rem; }
+}
 .contact__list a span:first-child { font-family: var(--mono); font-size: 0.72rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink-3); padding-top: 0.25rem; }
 .contact__list a span:last-child { font-family: var(--display); font-weight: 700; font-variation-settings: "CASL" 1; font-size: 1.2rem; transition: color 0.2s; }
 .contact__list a:hover span:last-child { color: var(--accent); }
