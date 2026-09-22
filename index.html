@@ -1,0 +1,398 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Gustavo Garcia</title>
+<meta name="description" content="Gustavo Garcia, desenvolvedor full stack em São Paulo. Responsável por todo o sistema do Diário de Notícias: portal, redação, agências, publicidade legal, impresso, newsletter e segurança. Projetos, trajetória e ficha técnica.">
+<meta name="color-scheme" content="light dark">
+<meta name="theme-color" content="#eef0f3" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#101317" media="(prefers-color-scheme: dark)">
+<meta property="og:title" content="Gustavo Garcia · desenvolvedor full stack">
+<meta property="og:description" content="Um jornal inteiro rodando em código próprio. Projetos, trajetória e ficha técnica.">
+<meta property="og:type" content="website">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='4' fill='%231f3acc'/%3E%3Ctext x='16' y='22' text-anchor='middle' font-family='Georgia,serif' font-size='19' fill='white'%3EGG%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400;1,6..72,500&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="assets/style.css">
+<script>
+  // Aplica o tema salvo antes da primeira pintura, para não piscar.
+  try { var t = localStorage.getItem("tema"); if (t === "dark" || t === "light") document.documentElement.dataset.theme = t; } catch (e) {}
+</script>
+</head>
+<body>
+
+<header class="topbar" aria-label="Cabeçalho">
+  <a class="topbar__name" href="#perfil">Gustavo Garcia</a>
+  <span class="topbar__role">Desenvolvedor full stack</span>
+  <span class="topbar__clock"><span class="dot" aria-hidden="true"></span>São Paulo · <time id="relogio" datetime="">--:--</time></span>
+  <button class="theme" id="tema" type="button" aria-label="Alternar tema claro e escuro" title="Alternar tema">
+    <svg class="theme__sun" viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M4.9 4.9l2.1 2.1M17 17l2.1 2.1M4.9 19.1 7 17M17 7l2.1-2.1" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+    <svg class="theme__moon" viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path d="M20 14.5A8.5 8.5 0 0 1 9.5 4a8.5 8.5 0 1 0 10.5 10.5Z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg>
+  </button>
+</header>
+
+<div class="frame">
+
+  <aside class="rail">
+    <p class="rail__name">Gustavo Garcia</p>
+    <p class="rail__role">Desenvolvedor full stack<br>São Paulo, Brasil</p>
+
+    <nav class="index" aria-label="Seções">
+      <a href="#perfil" data-index>Perfil</a>
+      <a href="#projetos" data-index>Projetos</a>
+      <a href="#trajetoria" data-index>Trajetória</a>
+      <a href="#ficha" data-index>Ficha técnica</a>
+      <a href="#contato" data-index>Contato</a>
+    </nav>
+
+    <div class="rail__now">
+      <p class="label">Agora</p>
+      <p>Responsável pelo desenvolvimento de todo o sistema do Diário de Notícias.</p>
+    </div>
+
+    <ul class="rail__links">
+      <li><a href="https://github.com/gugarciac" rel="me noopener" target="_blank">GitHub</a></li>
+      <li><a href="https://www.linkedin.com/in/gustavo-garcia-9012a2305/" rel="me noopener" target="_blank">LinkedIn</a></li>
+      <li><a href="https://www.instagram.com/gugarciac/" rel="me noopener" target="_blank">Instagram</a></li>
+    </ul>
+  </aside>
+
+  <main id="conteudo">
+
+    <!-- ───────────── Perfil ───────────── -->
+    <section class="hero" id="perfil" aria-labelledby="titulo">
+      <p class="eyebrow"><time id="data-hoje" datetime="">Edição de hoje</time></p>
+      <h1 id="titulo">Um jornal inteiro rodando em código próprio.</h1>
+      <p class="lede">
+        Sou desenvolvedor full stack em São Paulo. Hoje respondo por todo o software do
+        <a href="https://www.diariodenoticias.com.br" target="_blank" rel="noopener">Diário de Notícias</a>:
+        o portal, o painel da redação, a entrada automática das agências, a publicidade legal,
+        o jornal impresso, a newsletter e a camada de segurança. Antes disso, aplicativos que uso
+        todos os dias e automações que resolvem um problema de cada vez.
+      </p>
+
+      <dl class="facts">
+        <div>
+          <dt>Em produção</dt>
+          <dd>2 sistemas</dd>
+        </div>
+        <div>
+          <dt>Apps instaláveis</dt>
+          <dd>2 PWAs</dd>
+        </div>
+        <div>
+          <dt>Diário de Notícias</dt>
+          <dd>241 arquivos · 18 mil linhas de TypeScript</dd>
+        </div>
+        <div>
+          <dt>Modo de trabalho</dt>
+          <dd>entregar todo dia, medir, endurecer, repetir</dd>
+        </div>
+      </dl>
+    </section>
+
+    <!-- ───────────── Projetos ───────────── -->
+    <section class="section" id="projetos" aria-labelledby="projetos-titulo">
+      <header class="section__head">
+        <h2 id="projetos-titulo">Projetos</h2>
+        <p class="section__meta">6 registros · 2024 a 2026 · os mais recentes primeiro</p>
+      </header>
+
+      <div class="ledger">
+
+        <article class="entry" id="diario-de-noticias">
+          <details open>
+            <summary>
+              <span class="entry__code">2026 · em produção</span>
+              <span class="entry__title">Diário de Notícias</span>
+              <span class="entry__line">A plataforma completa de um jornal: portal, redação, agências, impresso, publicidade legal, comercial, marketing e newsletter em um só sistema.</span>
+              <span class="entry__stack">Next.js 15 · React 19 · TypeScript · Prisma · Tailwind 4</span>
+              <span class="entry__toggle" aria-hidden="true"></span>
+            </summary>
+            <div class="entry__body">
+              <div class="entry__grid">
+                <div class="entry__text">
+                  <h3>O problema</h3>
+                  <p>Um jornal com quatro décadas de história e uma operação espalhada em ferramentas soltas: notícia de agência copiada à mão, capa do impresso recortada por alguém, publicidade legal em PDF sem página nem busca, lead comercial perdido no e-mail, assinantes em planilha.</p>
+                  <h3>O que construí</h3>
+                  <p>Um único sistema, do site público ao painel, em que cada parte alimenta a outra. As agências entram sozinhas e caem na editoria certa por regras de palavras-chave. O PDF do impresso gera a capa da home. Cada empresa de publicidade legal tem uma página permanente com acervo pesquisável, e o importador em lote classifica milhares de PDFs por nome, pasta e leitura do conteúdo. O comercial tem funil, faturas e inserções. O marketing gera a arte da notícia com a marca e agenda nas redes. A newsletter tem base única com API para os outros sites do grupo.</p>
+                  <h3>Segurança e operação</h3>
+                  <p>Verificação em duas etapas obrigatória para administradores, permissões por função, limite de tentativas com banimento, política de conteúdo com nonce por requisição, chaves de API e segredos com AES-256-GCM, backups diários cifrados, auditoria de cada ação e diagnóstico do servidor sem depender de suporte. O banco e as pastas se criam sozinhos na primeira subida.</p>
+                </div>
+                <aside class="entry__side">
+                  <p class="label">Fluxo</p>
+<pre class="diagram" aria-label="Diagrama do fluxo do sistema">
+agências ─▶ ingestão ─▶ regras ─▶ editoria
+                                     │
+redação ─▶ painel ──────────────▶ publicação
+comercial ─▶ funil ─▶ faturas        │
+marketing ─▶ arte ─▶ redes           ▼
+impresso ─▶ capa ─▶ acervo      site público
+publicidade legal ─▶ empresa         │
+newsletter ─▶ base ─▶ API     feeds · sitemaps
+                              JSON-LD · IndexNow
+</pre>
+                  <p class="label">Ficha</p>
+                  <dl class="spec">
+                    <div><dt>Módulos</dt><dd>12</dd></div>
+                    <div><dt>Perfis</dt><dd>redator, editor, diagramador, comercial, marketing, admin</dd></div>
+                    <div><dt>Banco</dt><dd>SQLite, PostgreSQL em produção</dd></div>
+                    <div><dt>Editor</dt><dd>TipTap com foto, vídeo e áudio</dd></div>
+                    <div><dt>Sessões</dt><dd>JWT em cookie HttpOnly, 2FA TOTP</dd></div>
+                    <div><dt>Código</dt><dd>privado</dd></div>
+                  </dl>
+                  <p class="entry__links">
+                    <a href="https://www.diariodenoticias.com.br" target="_blank" rel="noopener">Ver o site</a>
+                    <a href="https://www.diariodenoticias.com.br/plataforma" target="_blank" rel="noopener">A plataforma</a>
+                  </p>
+                </aside>
+              </div>
+            </div>
+          </details>
+        </article>
+
+        <article class="entry" id="dn-news">
+          <details>
+            <summary>
+              <span class="entry__code">2026 · em produção</span>
+              <span class="entry__title">DN News</span>
+              <span class="entry__line">O site da newsletter diária do Diário, com painel de assinantes ligado à base única do jornal por API com chave.</span>
+              <span class="entry__stack">React · Vite · TypeScript · Tailwind · shadcn/ui · Supabase</span>
+              <span class="entry__toggle" aria-hidden="true"></span>
+            </summary>
+            <div class="entry__body">
+              <div class="entry__grid">
+                <div class="entry__text">
+                  <h3>O problema</h3>
+                  <p>Dois sites do mesmo grupo, duas listas de e-mail. Quem assinava em um não estava no outro, e o descadastro precisava ser feito duas vezes.</p>
+                  <h3>O que construí</h3>
+                  <p>Um site estático em React que grava as inscrições direto na API do Diário de Notícias. O painel administrativo pede a chave de acesso e lista, inclui e remove e-mails na base única. Sem a variável de ambiente, o projeto volta ao modo antigo com Supabase, então a migração foi feita sem derrubar nada.</p>
+                  <h3>Publicação</h3>
+                  <p>O build gera o arquivo de configuração do servidor com as rotas do React, HTTPS obrigatório, cabeçalhos de segurança e uma política de conteúdo que libera só as origens configuradas. Testes com Vitest, incluindo um teste de segurança da página inicial.</p>
+                </div>
+                <aside class="entry__side">
+                  <p class="label">Fluxo</p>
+<pre class="diagram" aria-label="Diagrama do fluxo do DN News">
+leitor ─▶ formulário ─▶ API ─▶ base única
+                         ▲
+painel /admin ─▶ chave ──┘
+lista · inclui · remove
+</pre>
+                  <p class="label">Ficha</p>
+                  <dl class="spec">
+                    <div><dt>Hospedagem</dt><dd>estático, deploy a partir do GitHub</dd></div>
+                    <div><dt>Testes</dt><dd>Vitest, Testing Library</dd></div>
+                    <div><dt>Código</dt><dd>privado</dd></div>
+                  </dl>
+                </aside>
+              </div>
+            </div>
+          </details>
+        </article>
+
+        <article class="entry" id="disciplina">
+          <details>
+            <summary>
+              <span class="entry__code">2026 · em uso</span>
+              <span class="entry__title">Disciplina</span>
+              <span class="entry__line">Aplicativo instalável de hábitos, tarefas, metas e agenda que roda inteiro no aparelho, sem servidor.</span>
+              <span class="entry__stack">React sem build · Service Worker · PWA</span>
+              <span class="entry__toggle" aria-hidden="true"></span>
+            </summary>
+            <div class="entry__body">
+              <div class="entry__grid">
+                <div class="entry__text">
+                  <h3>A decisão</h3>
+                  <p>Nenhum servidor, nenhum banco, nenhuma conta. Os dados ficam no armazenamento do navegador e saem por exportação em JSON quando eu quiser guardar ou levar para outro aparelho. É um app de uso pessoal e a privacidade vem da arquitetura, não de uma política.</p>
+                  <h3>Como é feito</h3>
+                  <p>React carregado direto do arquivo, sem etapa de build: três arquivos e a pasta de bibliotecas. O service worker deixa o app abrir sem internet e a versão marcada no código força o celular a baixar a atualização. Publicado com uma cópia de arquivos na hospedagem.</p>
+                </div>
+                <aside class="entry__side">
+                  <p class="label">Ficha</p>
+                  <dl class="spec">
+                    <div><dt>Telas</dt><dd>hoje, hábitos, tarefas, metas, agenda, configurações</dd></div>
+                    <div><dt>Dados</dt><dd>só no aparelho, exporta e importa JSON</dd></div>
+                    <div><dt>Tamanho</dt><dd>3,7 mil linhas em um arquivo</dd></div>
+                    <div><dt>Código</dt><dd>privado</dd></div>
+                  </dl>
+                </aside>
+              </div>
+            </div>
+          </details>
+        </article>
+
+        <article class="entry" id="controle-de-treinos">
+          <details>
+            <summary>
+              <span class="entry__code">2026 · em uso</span>
+              <span class="entry__title">Controle de Treinos</span>
+              <span class="entry__line">Registro de musculação, cardio e corridas com progressão de carga, para um grupo de pessoas, cada uma com a própria conta.</span>
+              <span class="entry__stack">HTML · CSS · JavaScript · PWA · um único arquivo</span>
+              <span class="entry__toggle" aria-hidden="true"></span>
+            </summary>
+            <div class="entry__body">
+              <div class="entry__grid">
+                <div class="entry__text">
+                  <h3>O que faz</h3>
+                  <p>Treinos fixos com troca de exercício só para o dia ou para sempre, cronômetro que continua rodando mesmo com o app fechado, cardio com tempo, distância, nível, frequência cardíaca e calorias, resumo do mês, contador de treinos por academia e planilha para exportar. Modo claro e escuro, português e inglês.</p>
+                  <h3>Segurança em um arquivo estático</h3>
+                  <p>As senhas não aparecem em lugar nenhum do código: fica só um resumo lento, com sal por conta, que não dá para ler de volta. Depois de cinco erros seguidos o login trava por trinta segundos, dobrando a cada erro. Tudo isso sem servidor.</p>
+                </div>
+                <aside class="entry__side">
+                  <p class="label">Ficha</p>
+                  <dl class="spec">
+                    <div><dt>Contas</dt><dd>7 pessoas, cada uma no próprio celular</dd></div>
+                    <div><dt>Arquivo</dt><dd>um index.html de 527 KB</dd></div>
+                    <div><dt>Offline</dt><dd>service worker</dd></div>
+                    <div><dt>Código</dt><dd>privado</dd></div>
+                  </dl>
+                </aside>
+              </div>
+            </div>
+          </details>
+        </article>
+
+        <article class="entry" id="purifica-vida">
+          <details>
+            <summary>
+              <span class="entry__code">2024</span>
+              <span class="entry__title">Purifica Vida</span>
+              <span class="entry__line">Página de apresentação de um serviço de encaminhamento a clínicas de recuperação, com contato direto pelo WhatsApp.</span>
+              <span class="entry__stack">HTML · CSS</span>
+              <span class="entry__toggle" aria-hidden="true"></span>
+            </summary>
+            <div class="entry__body">
+              <div class="entry__grid">
+                <div class="entry__text">
+                  <p>Meu primeiro site publicado. Uma página só, com o texto de acolhimento, os serviços e um botão que leva direto à conversa no WhatsApp. Fontes e estilos próprios, sem biblioteca.</p>
+                </div>
+                <aside class="entry__side">
+                  <dl class="spec">
+                    <div><dt>Código</dt><dd>privado</dd></div>
+                  </dl>
+                </aside>
+              </div>
+            </div>
+          </details>
+        </article>
+
+        <article class="entry" id="automacao-soc">
+          <details>
+            <summary>
+              <span class="entry__code">2024</span>
+              <span class="entry__title">Automação SOC</span>
+              <span class="entry__line">Script que entra no sistema de saúde ocupacional SOC e percorre as telas sozinho, para tirar da rotina uma tarefa repetitiva.</span>
+              <span class="entry__stack">Python · Selenium</span>
+              <span class="entry__toggle" aria-hidden="true"></span>
+            </summary>
+            <div class="entry__body">
+              <div class="entry__grid">
+                <div class="entry__text">
+                  <p>Primeiro contato com automação de navegador: abrir o Chrome, preencher o login, navegar pelos menus e deixar a tela pronta para o trabalho do dia. Foi o começo do gosto por fazer o computador repetir o que uma pessoa não precisa repetir, a mesma ideia que hoje faz as agências entrarem sozinhas no Diário.</p>
+                </div>
+                <aside class="entry__side">
+                  <dl class="spec">
+                    <div><dt>Código</dt><dd>privado</dd></div>
+                  </dl>
+                </aside>
+              </div>
+            </div>
+          </details>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- ───────────── Trajetória ───────────── -->
+    <section class="section" id="trajetoria" aria-labelledby="trajetoria-titulo">
+      <header class="section__head">
+        <h2 id="trajetoria-titulo">Trajetória</h2>
+        <p class="section__meta">de scripts em Python a um sistema inteiro em produção</p>
+      </header>
+
+      <ol class="timeline">
+        <li>
+          <span class="timeline__when">2024</span>
+          <div>
+            <h3>Base</h3>
+            <p>Lógica e sintaxe em Python, os primeiros scripts de automação com Selenium e o primeiro site publicado, em HTML e CSS puros.</p>
+          </div>
+        </li>
+        <li>
+          <span class="timeline__when">2025</span>
+          <div>
+            <h3>Web de verdade</h3>
+            <p>TypeScript, React e Node.js. Bancos relacionais com Prisma. Primeiras publicações em hospedagem própria, com HTTPS, cabeçalhos de segurança e deploy a partir do GitHub.</p>
+          </div>
+        </li>
+        <li>
+          <span class="timeline__when">2026</span>
+          <div>
+            <h3>Diário de Notícias</h3>
+            <p>Responsável por todo o sistema do jornal: portal, painel, agências, impresso, publicidade legal, comercial, marketing, newsletter e segurança. No mesmo ano, o DN News e dois aplicativos instaláveis de uso diário.</p>
+          </div>
+        </li>
+      </ol>
+    </section>
+
+    <!-- ───────────── Ficha técnica ───────────── -->
+    <section class="section" id="ficha" aria-labelledby="ficha-titulo">
+      <header class="section__head">
+        <h2 id="ficha-titulo">Ficha técnica</h2>
+        <p class="section__meta">o que uso e onde já usei</p>
+      </header>
+
+      <dl class="sheet">
+        <div>
+          <dt>Linguagens</dt>
+          <dd>TypeScript, JavaScript, SQL, Python, PHP, Java, C, .NET</dd>
+        </div>
+        <div>
+          <dt>Front-end</dt>
+          <dd>Next.js 15, React 19, Tailwind CSS 4, Vite, shadcn/ui, TipTap, PWA com service worker</dd>
+        </div>
+        <div>
+          <dt>Back-end e dados</dt>
+          <dd>Node.js, Prisma, SQLite, PostgreSQL, MySQL, Supabase, APIs REST, RSS e Media RSS, WebSub, IndexNow</dd>
+        </div>
+        <div>
+          <dt>Segurança</dt>
+          <dd>JWT com jose, 2FA TOTP, bcrypt, AES-256-GCM, CSP com nonce, limite de requisições com banimento, allowlist de IP, Cloudflare Turnstile, gitleaks, Dependabot</dd>
+        </div>
+        <div>
+          <dt>Infra e testes</dt>
+          <dd>Hostinger, cPanel, AWS, GitHub Actions, Playwright, Vitest, Chromium para PDF e testes</dd>
+        </div>
+        <div>
+          <dt>Jeito de trabalhar</dt>
+          <dd>Produto de ponta a ponta. Entrego todo dia, meço, endureço e repito. Documento no README o que a próxima pessoa precisa saber para operar sem mim.</dd>
+        </div>
+      </dl>
+    </section>
+
+    <!-- ───────────── Contato ───────────── -->
+    <section class="section section--contact" id="contato" aria-labelledby="contato-titulo">
+      <header class="section__head">
+        <h2 id="contato-titulo">Contato</h2>
+      </header>
+      <p class="contact__lede">Se você tem um sistema para construir, uma operação para automatizar ou quer conversar sobre o que está aqui, me chame.</p>
+      <ul class="contact__list">
+        <li><a href="https://www.linkedin.com/in/gustavo-garcia-9012a2305/" target="_blank" rel="me noopener"><span>LinkedIn</span><span>gustavo-garcia</span></a></li>
+        <li><a href="https://github.com/gugarciac" target="_blank" rel="me noopener"><span>GitHub</span><span>gugarciac</span></a></li>
+        <li><a href="https://www.instagram.com/gugarciac/" target="_blank" rel="me noopener"><span>Instagram</span><span>@gugarciac</span></a></li>
+      </ul>
+    </section>
+
+  </main>
+</div>
+
+<footer class="colophon">
+  <p>Este site é HTML, CSS e JavaScript escritos à mão, sem framework e sem etapa de build. Tipografia: Newsreader e IBM Plex.</p>
+  <p><a href="https://github.com/gugarciac/gugarciac.github.io" target="_blank" rel="noopener">Código-fonte</a> · Atualizado em <time datetime="2026-09-22">22 de setembro de 2026</time></p>
+</footer>
+
+<script src="assets/app.js"></script>
+</body>
+</html>
