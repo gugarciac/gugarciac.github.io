@@ -4,129 +4,179 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Gustavo Garcia</title>
-<meta name="description" content="Gustavo Garcia, desenvolvedor full stack em São Paulo. Responsável por todo o sistema do Diário de Notícias: portal, redação, agências, publicidade legal, impresso, newsletter e segurança. Projetos, trajetória e ficha técnica.">
-<meta name="color-scheme" content="light dark">
-<meta name="theme-color" content="#f3f1f8" media="(prefers-color-scheme: light)">
-<meta name="theme-color" content="#16141c" media="(prefers-color-scheme: dark)">
+<meta name="description" content="Gustavo Garcia, desenvolvedor full stack em São Paulo. Responsável por todo o sistema do Diário de Notícias: portal, redação, agências, publicidade legal, impresso, newsletter e segurança. Projetos, trajetória e ferramentas.">
+<meta name="color-scheme" content="light">
+<meta name="theme-color" content="#ffffff">
 <meta property="og:title" content="Gustavo Garcia · desenvolvedor full stack">
-<meta property="og:description" content="Um jornal inteiro rodando em código próprio. Projetos, trajetória e ficha técnica.">
+<meta property="og:description" content="Sistemas que pessoas usam todos os dias. Projetos, trajetória e ferramentas.">
 <meta property="og:type" content="website">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='4' fill='%23ff5b3a'/%3E%3Ctext x='16' y='22' text-anchor='middle' font-family='Georgia,serif' font-size='19' fill='white'%3EGG%3C/text%3E%3C/svg%3E">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%231d1d1f'/%3E%3Ctext x='16' y='21' text-anchor='middle' font-family='Helvetica,Arial,sans-serif' font-weight='600' font-size='13' fill='white'%3EGG%3C/text%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Recursive:slnt,wght,CASL@-15..0,300..1000,0..1&family=Instrument+Serif:ital@0;1&family=Caveat:wght@500;700&family=Fragment+Mono&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="assets/tokens.css">
 <link rel="stylesheet" href="assets/style.css">
-<script>
-  // Aplica o tema salvo antes da primeira pintura, para não piscar.
-  try { var t = localStorage.getItem("tema"); if (t === "dark" || t === "light") document.documentElement.dataset.theme = t; } catch (e) {}
-</script>
 </head>
 <body>
 
-<header class="topbar" aria-label="Cabeçalho">
-  <a class="topbar__name" href="#perfil">Gustavo Garcia</a>
-  <span class="topbar__role">Desenvolvedor full stack</span>
-  <span class="topbar__clock"><span class="dot" aria-hidden="true"></span>São Paulo · <time id="relogio" datetime="">--:--</time></span>
-  <button class="theme" id="tema" type="button" aria-label="Alternar tema claro e escuro" title="Alternar tema">
-    <svg class="theme__sun" viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M4.9 4.9l2.1 2.1M17 17l2.1 2.1M4.9 19.1 7 17M17 7l2.1-2.1" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
-    <svg class="theme__moon" viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path d="M20 14.5A8.5 8.5 0 0 1 9.5 4a8.5 8.5 0 1 0 10.5 10.5Z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg>
-  </button>
-</header>
-
-<div class="frame">
-
-  <aside class="rail">
-    <p class="rail__name">Gustavo Garcia</p>
-    <p class="rail__role">Desenvolvedor full stack<br>São Paulo, Brasil</p>
-
-    <nav class="index" aria-label="Seções">
-      <a href="#perfil" data-index>Perfil</a>
+<header class="gnav" aria-label="Navegação global">
+  <div class="gnav__inner">
+    <a class="gnav__brand" href="#topo" aria-label="Início">GG</a>
+    <nav class="gnav__links" aria-label="Seções">
+      <a href="#destaques" data-index>Destaques</a>
       <a href="#projetos" data-index>Projetos</a>
       <a href="#trajetoria" data-index>Trajetória</a>
       <a href="#ficha" data-index>Ferramentas</a>
       <a href="#certificados" data-index data-certs-link hidden>Certificados</a>
       <a href="#contato" data-index>Contato</a>
     </nav>
+    <span class="gnav__clock">São Paulo <time id="relogio" datetime="">--:--</time></span>
+  </div>
+</header>
 
-    <div class="rail__now">
-      <p class="label">Agora mesmo</p>
-      <p>Responsável pelo desenvolvimento de todo o sistema do Diário de Notícias.</p>
+<div class="lnav">
+  <div class="lnav__inner">
+    <p class="lnav__title">Gustavo Garcia</p>
+    <div class="lnav__actions">
+      <a class="pill pill--outline" href="https://github.com/gugarciac" target="_blank" rel="me noopener">GitHub</a>
+      <a class="pill pill--blue" href="#contato">Fale comigo</a>
     </div>
+  </div>
+</div>
 
-    <ul class="rail__links">
-      <li><a href="https://github.com/gugarciac" rel="me noopener" target="_blank">GitHub</a></li>
-      <li><a href="https://www.linkedin.com/in/gustavo-garcia-9012a2305/" rel="me noopener" target="_blank">LinkedIn</a></li>
-      <li><a href="https://www.instagram.com/gugarciac/" rel="me noopener" target="_blank">Instagram</a></li>
-    </ul>
-  </aside>
+<main id="topo">
 
-  <main id="conteudo">
-
-    <!-- ───────────── Perfil ───────────── -->
-    <section class="hero" id="perfil" aria-labelledby="titulo">
-      <div class="hero__text">
-        <p class="eyebrow"><span id="saudacao">oi</span> · <time id="data-hoje" datetime="">hoje</time></p>
-        <h1 id="titulo"><span class="w">Eu</span> <span class="w">faço</span> <em>sistemas</em> <span class="w">que</span> <span class="w">gente</span> <span class="w">de</span> <span class="w">verdade</span> <mark>usa todo dia.</mark></h1>
-        <p class="scribble scribble--hero" aria-hidden="true">inclusive um jornal inteiro
-          <svg viewBox="0 0 90 60" width="72" height="48"><path d="M4 8 C 30 4, 58 14, 62 34 S 52 54, 70 52" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/><path d="M62 45 L 71 52 L 61 57" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        </p>
-        <p class="lede">
-          Sou o Gustavo, desenvolvedor full stack em São Paulo. Hoje cuido de todo o software do
-          <a href="https://darkslategray-grasshopper-335515.hostingersite.com" target="_blank" rel="noopener">Diário de Notícias</a>:
-          o portal, o painel da redação, as agências que entram sozinhas, a publicidade legal,
-          o impresso, a newsletter e a segurança de tudo isso. No tempo que sobra, faço aplicativos
-          pra resolver a minha rotina, e às vezes a dos meus amigos.
-        </p>
+  <!-- ───────────── Abertura ───────────── -->
+  <section class="hero" aria-labelledby="titulo">
+    <div class="wrap hero__text">
+      <p class="hero__kicker">Desenvolvedor full stack</p>
+      <h1 id="titulo">Sistemas que pessoas usam todos os dias.</h1>
+      <p class="hero__sub">Do portal de um jornal inteiro a aplicativos que cabem no bolso. Em São Paulo.</p>
+      <p class="hero__links"><a class="more" href="#projetos">Ver projetos</a><a class="more" href="#contato">Fale comigo</a></p>
+    </div>
+    <div class="hero__stage">
+      <img class="hero__img" src="assets/shots/diario-de-noticias.jpg" alt="Capa do portal do Diário de Notícias" width="1440" height="900" decoding="async" fetchpriority="high">
+      <div class="callout">
+        <div>
+          <p class="callout__title">Diário de Notícias</p>
+          <p class="callout__copy">Portal, redação e publicidade legal em um só sistema.</p>
+        </div>
+        <a class="pill pill--blue" href="#diario-de-noticias" data-open="diario-de-noticias">Conhecer</a>
       </div>
-      <figure class="polaroid" aria-hidden="true">
-        <img src="assets/shots/diario-de-noticias.jpg" alt="" width="1440" height="900" decoding="async">
-        <figcaption>o diário, numa terça qualquer</figcaption>
-      </figure>
+    </div>
+  </section>
 
-      <dl class="facts">
-        <div>
-          <dt>No ar</dt>
-          <dd>3 sites e sistemas</dd>
-        </div>
-        <div>
-          <dt>Apps instaláveis</dt>
-          <dd>2 PWAs</dd>
-        </div>
-        <div>
-          <dt>Diário de Notícias</dt>
-          <dd>241 arquivos · 18 mil linhas de TypeScript</dd>
-        </div>
-        <div>
-          <dt>Modo de trabalho</dt>
-          <dd>entregar todo dia, medir, endurecer, repetir</dd>
-        </div>
-      </dl>
-    </section>
+  <!-- ───────────── Destaques ───────────── -->
+  <section class="band band--mist section" id="destaques" aria-labelledby="destaques-titulo">
+    <div class="wrap section__head section__head--split">
+      <h2 id="destaques-titulo">Destaques.</h2>
+      <a class="more" href="#projetos">Todos os projetos</a>
+    </div>
+    <div class="hl">
+      <ul class="hl__track" id="hl-track">
+          <li class="hl__card hl__card--desktop">
+            <a href="#diario-de-noticias" data-open="diario-de-noticias">
+              <span class="hl__status">Em produção</span>
+              <span class="hl__name">Diário de Notícias</span>
+              <span class="hl__title">Um jornal inteiro em um só sistema.</span>
+              <span class="hl__copy">Portal, redação, agências, impresso, publicidade legal e newsletter.</span>
+              <img src="assets/shots/diario-de-noticias.jpg" alt="" loading="lazy" decoding="async" width="1440" height="900">
+            </a>
+          </li>
+          <li class="hl__card hl__card--desktop">
+            <a href="#dn-news" data-open="dn-news">
+              <span class="hl__status">Em produção</span>
+              <span class="hl__name">DN News</span>
+              <span class="hl__title">Duas listas de assinantes viraram uma.</span>
+              <span class="hl__copy">Newsletter diária ligada à base do jornal por API.</span>
+              <img src="assets/shots/dn-news.jpg" alt="" loading="lazy" decoding="async" width="1440" height="900">
+            </a>
+          </li>
+          <li class="hl__card hl__card--desktop">
+            <a href="#coulero" data-open="coulero">
+              <span class="hl__status">Em evolução</span>
+              <span class="hl__name">Coulero</span>
+              <span class="hl__title">Landing pages para três profissões.</span>
+              <span class="hl__copy">Estética, dermatologia e advocacia na mesma aplicação.</span>
+              <img src="assets/shots/coulero.jpg" alt="" loading="lazy" decoding="async" width="1440" height="900">
+            </a>
+          </li>
+          <li class="hl__card hl__card--phone">
+            <a href="#disciplina" data-open="disciplina">
+              <span class="hl__status">Em uso</span>
+              <span class="hl__name">Disciplina</span>
+              <span class="hl__title">Hábitos, metas e agenda. Sem servidor.</span>
+              <span class="hl__copy">Os dados nunca saem do aparelho.</span>
+              <img src="assets/shots/disciplina.jpg" alt="" loading="lazy" decoding="async" width="390" height="844">
+            </a>
+          </li>
+          <li class="hl__card hl__card--phone">
+            <a href="#controle-de-treinos" data-open="controle-de-treinos">
+              <span class="hl__status">Em uso</span>
+              <span class="hl__name">Controle de Treinos</span>
+              <span class="hl__title">Sete pessoas treinam com ele.</span>
+              <span class="hl__copy">Musculação, cardio e progressão de carga, offline.</span>
+              <img src="assets/shots/controle-de-treinos.jpg" alt="" loading="lazy" decoding="async" width="390" height="844">
+            </a>
+          </li>
+          <li class="hl__card hl__card--desktop">
+            <a href="#dynamic-vision" data-open="dynamic-vision">
+              <span class="hl__status">No ar</span>
+              <span class="hl__name">Dynamic Vision</span>
+              <span class="hl__title">Filmagem aérea, publicada pelo próprio cliente.</span>
+              <span class="hl__copy">Site em WordPress para uma empresa de drone.</span>
+              <img src="assets/shots/dynamic-vision.jpg" alt="" loading="lazy" decoding="async" width="1440" height="900">
+            </a>
+          </li>
+      </ul>
+    </div>
+    <div class="hl__controls" aria-label="Controles dos destaques">
+      <button type="button" class="hl__nav" data-dir="-1" aria-label="Destaque anterior"><svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M15 5l-7 7 7 7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+      <div class="hl__dots"><button type="button" class="hl__dot" aria-label="Ir para o destaque 1"></button><button type="button" class="hl__dot" aria-label="Ir para o destaque 2"></button><button type="button" class="hl__dot" aria-label="Ir para o destaque 3"></button><button type="button" class="hl__dot" aria-label="Ir para o destaque 4"></button><button type="button" class="hl__dot" aria-label="Ir para o destaque 5"></button><button type="button" class="hl__dot" aria-label="Ir para o destaque 6"></button></div>
+      <button type="button" class="hl__nav" data-dir="1" aria-label="Próximo destaque"><svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M9 5l7 7-7 7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+    </div>
+  </section>
 
-    <!-- ───────────── Projetos ───────────── -->
-    <section class="section" id="projetos" aria-labelledby="projetos-titulo">
+  <!-- ───────────── Números ───────────── -->
+  <section class="section numbers" aria-labelledby="numeros-titulo">
+    <div class="wrap">
       <header class="section__head">
-        <h2 id="projetos-titulo">Projetos</h2>
-        <p class="section__meta">8 coisas que eu fiz · as mais novas primeiro · clica pra abrir</p>
+        <h2 id="numeros-titulo">Em números.</h2>
       </header>
+      <dl class="numbers__grid">
+        <div class="reveal"><dt>módulos integrados no Diário de Notícias</dt><dd>12</dd></div>
+        <div class="reveal"><dt>linhas de TypeScript no Diário</dt><dd>18 mil</dd></div>
+        <div class="reveal"><dt>arquivos de código no Diário</dt><dd>241</dd></div>
+        <div class="reveal"><dt>sites e sistemas no ar</dt><dd>3</dd></div>
+        <div class="reveal"><dt>aplicativos instaláveis</dt><dd>2</dd></div>
+        <div class="reveal"><dt>pessoas usando o Controle de Treinos</dt><dd>7</dd></div>
+      </dl>
+    </div>
+  </section>
 
+  <!-- ───────────── Projetos ───────────── -->
+  <section class="section projects" id="projetos" aria-labelledby="projetos-titulo">
+    <div class="wrap">
+      <header class="section__head">
+        <h2 id="projetos-titulo">Todos os projetos.</h2>
+        <p class="section__meta">Oito projetos, do mais recente ao mais antigo. Toque em um para ver os detalhes.</p>
+      </header>
       <div class="ledger">
 
         <article class="entry" id="diario-de-noticias">
-          <details open>
+          <details>
             <summary>
-              <span class="entry__code">2026 · em produção</span>
+              <span class="entry__code"><span class="entry__year">2026</span><span class="entry__status">Em produção</span></span>
               <span class="entry__title">Diário de Notícias</span>
               <span class="entry__line">A plataforma completa de um jornal: portal, redação, agências, impresso, publicidade legal, comercial, marketing e newsletter em um só sistema.</span>
               <span class="entry__stack">Next.js 15 · React 19 · TypeScript · Prisma · Tailwind 4</span>
-              <span class="scribble entry__note">o maior projeto que já fiz, e ainda cresce toda semana</span>
+              <span class="entry__note">o maior projeto que já fiz, e ainda cresce toda semana</span>
               <span class="entry__thumb entry__thumb--desktop"><img src="assets/shots/diario-de-noticias.jpg" alt="" loading="lazy" decoding="async" width="1440" height="900"></span>
               <span class="entry__toggle" aria-hidden="true"></span>
             </summary>
             <div class="entry__body">
               <div class="entry__grid">
                 <figure class="shot shot--desktop">
-                  <div class="shot__bar"><span class="shot__dots" aria-hidden="true"></span><span class="shot__addr">diário de notícias · portal</span></div>
                   <img src="assets/shots/diario-de-noticias.jpg" alt="Capa do portal, com as editorias, o plantão e as últimas notícias" loading="lazy" decoding="async" width="1440" height="900">
                   <figcaption>Capa do portal, com as editorias, o plantão e as últimas notícias</figcaption>
                 </figure>
@@ -173,18 +223,17 @@ newsletter ─▶ base ─▶ API     feeds · sitemaps
         <article class="entry" id="dn-news">
           <details>
             <summary>
-              <span class="entry__code">2026 · em produção</span>
+              <span class="entry__code"><span class="entry__year">2026</span><span class="entry__status">Em produção</span></span>
               <span class="entry__title">DN News</span>
               <span class="entry__line">O site da newsletter diária do Diário, com painel de assinantes ligado à base única do jornal por API com chave.</span>
               <span class="entry__stack">React · Vite · TypeScript · Tailwind · shadcn/ui · Supabase</span>
-              <span class="scribble entry__note">duas listas viraram uma. ninguém descadastra duas vezes</span>
+              <span class="entry__note">duas listas viraram uma. ninguém descadastra duas vezes</span>
               <span class="entry__thumb entry__thumb--desktop"><img src="assets/shots/dn-news.jpg" alt="" loading="lazy" decoding="async" width="1440" height="900"></span>
               <span class="entry__toggle" aria-hidden="true"></span>
             </summary>
             <div class="entry__body">
               <div class="entry__grid">
                 <figure class="shot shot--desktop">
-                  <div class="shot__bar"><span class="shot__dots" aria-hidden="true"></span><span class="shot__addr">dnnews.com.br</span></div>
                   <img src="assets/shots/dn-news.jpg" alt="Página de assinatura da newsletter" loading="lazy" decoding="async" width="1440" height="900">
                   <figcaption>Página de assinatura da newsletter</figcaption>
                 </figure>
@@ -223,18 +272,17 @@ lista · inclui · remove
         <article class="entry" id="dynamic-vision">
           <details>
             <summary>
-              <span class="entry__code">2026 · no ar</span>
+              <span class="entry__code"><span class="entry__year">2026</span><span class="entry__status">No ar</span></span>
               <span class="entry__title">Dynamic Vision</span>
               <span class="entry__line">Site de uma empresa de filmagem e fotografia com drone, em WordPress, para o cliente mostrar o portfólio de imagens aéreas e receber pedidos de orçamento.</span>
               <span class="entry__stack">WordPress · PHP · CSS</span>
-              <span class="scribble entry__note">o cliente publica os vídeos sozinho. era essa a ideia</span>
+              <span class="entry__note">o cliente publica os vídeos sozinho. era essa a ideia</span>
               <span class="entry__thumb entry__thumb--desktop"><img src="assets/shots/dynamic-vision.jpg" alt="" loading="lazy" decoding="async" width="1440" height="900"></span>
               <span class="entry__toggle" aria-hidden="true"></span>
             </summary>
             <div class="entry__body">
               <div class="entry__grid">
                 <figure class="shot shot--desktop">
-                  <div class="shot__bar"><span class="shot__dots" aria-hidden="true"></span><span class="shot__addr">dynamicvision.com.br</span></div>
                   <img src="assets/shots/dynamic-vision.jpg" alt="Capa do projeto" loading="lazy" decoding="async" width="1440" height="900">
                   <figcaption>Capa do projeto</figcaption>
                 </figure>
@@ -262,18 +310,17 @@ lista · inclui · remove
         <article class="entry" id="coulero">
           <details>
             <summary>
-              <span class="entry__code">2026 · em evolução</span>
+              <span class="entry__code"><span class="entry__year">2026</span><span class="entry__status">Em evolução</span></span>
               <span class="entry__title">Coulero</span>
               <span class="entry__line">Site de uma agência de landing pages, com três sites de demonstração para áreas diferentes: estética, dermatologia e advocacia.</span>
               <span class="entry__stack">React · Vite · TypeScript · Tailwind · shadcn/ui</span>
-              <span class="scribble entry__note">versão 1. a 2 vem mais caprichada</span>
+              <span class="entry__note">versão 1. a 2 vem mais caprichada</span>
               <span class="entry__thumb entry__thumb--desktop"><img src="assets/shots/coulero.jpg" alt="" loading="lazy" decoding="async" width="1440" height="900"></span>
               <span class="entry__toggle" aria-hidden="true"></span>
             </summary>
             <div class="entry__body">
               <div class="entry__grid">
                 <figure class="shot shot--desktop">
-                  <div class="shot__bar"><span class="shot__dots" aria-hidden="true"></span><span class="shot__addr">coulero</span></div>
                   <img src="assets/shots/coulero.jpg" alt="Página da agência" loading="lazy" decoding="async" width="1440" height="900">
                   <figcaption>Página da agência</figcaption>
                 </figure>
@@ -315,18 +362,17 @@ lista · inclui · remove
         <article class="entry" id="disciplina">
           <details>
             <summary>
-              <span class="entry__code">2026 · em uso</span>
+              <span class="entry__code"><span class="entry__year">2026</span><span class="entry__status">Em uso</span></span>
               <span class="entry__title">Disciplina</span>
               <span class="entry__line">Aplicativo instalável de hábitos, tarefas, metas e agenda que roda inteiro no aparelho, sem servidor.</span>
               <span class="entry__stack">React sem build · Service Worker · PWA</span>
-              <span class="scribble entry__note">zero servidor: seus dados não saem do celular</span>
+              <span class="entry__note">zero servidor: seus dados não saem do celular</span>
               <span class="entry__thumb entry__thumb--phone"><img src="assets/shots/disciplina.jpg" alt="" loading="lazy" decoding="async" width="390" height="844"></span>
               <span class="entry__toggle" aria-hidden="true"></span>
             </summary>
             <div class="entry__body">
               <div class="entry__grid">
                 <figure class="shot shot--phone">
-                  <div class="shot__bar"><span class="shot__dots" aria-hidden="true"></span><span class="shot__addr">disciplina</span></div>
                   <img src="assets/shots/disciplina.jpg" alt="Tela Hoje, com o mês de hábitos e os pontos do dia" loading="lazy" decoding="async" width="390" height="844">
                   <figcaption>Tela Hoje, com o mês de hábitos e os pontos do dia</figcaption>
                 </figure>
@@ -353,18 +399,17 @@ lista · inclui · remove
         <article class="entry" id="controle-de-treinos">
           <details>
             <summary>
-              <span class="entry__code">2026 · em uso</span>
+              <span class="entry__code"><span class="entry__year">2026</span><span class="entry__status">Em uso</span></span>
               <span class="entry__title">Controle de Treinos</span>
               <span class="entry__line">Registro de musculação, cardio e corridas com progressão de carga, para um grupo de pessoas, cada uma com a própria conta.</span>
               <span class="entry__stack">HTML · CSS · JavaScript · PWA · um único arquivo</span>
-              <span class="scribble entry__note">7 pessoas usam isso pra treinar</span>
+              <span class="entry__note">7 pessoas usam isso pra treinar</span>
               <span class="entry__thumb entry__thumb--phone"><img src="assets/shots/controle-de-treinos.jpg" alt="" loading="lazy" decoding="async" width="390" height="844"></span>
               <span class="entry__toggle" aria-hidden="true"></span>
             </summary>
             <div class="entry__body">
               <div class="entry__grid">
                 <figure class="shot shot--phone">
-                  <div class="shot__bar"><span class="shot__dots" aria-hidden="true"></span><span class="shot__addr">controle de treinos</span></div>
                   <img src="assets/shots/controle-de-treinos.jpg" alt="Tela de entrada, com uma conta para cada pessoa" loading="lazy" decoding="async" width="390" height="844">
                   <figcaption>Tela de entrada, com uma conta para cada pessoa</figcaption>
                 </figure>
@@ -391,18 +436,17 @@ lista · inclui · remove
         <article class="entry" id="purifica-vida">
           <details>
             <summary>
-              <span class="entry__code">2024</span>
+              <span class="entry__code"><span class="entry__year">2024</span></span>
               <span class="entry__title">Purifica Vida</span>
               <span class="entry__line">Página de apresentação de um serviço de encaminhamento a clínicas de recuperação, com contato direto pelo WhatsApp.</span>
               <span class="entry__stack">HTML · CSS</span>
-              <span class="scribble entry__note">o primeiro site que eu coloquei no ar</span>
+              <span class="entry__note">o primeiro site que eu coloquei no ar</span>
               <span class="entry__thumb entry__thumb--desktop"><img src="assets/shots/purifica-vida.jpg" alt="" loading="lazy" decoding="async" width="1440" height="900"></span>
               <span class="entry__toggle" aria-hidden="true"></span>
             </summary>
             <div class="entry__body">
               <div class="entry__grid">
                 <figure class="shot shot--desktop">
-                  <div class="shot__bar"><span class="shot__dots" aria-hidden="true"></span><span class="shot__addr">purifica vida</span></div>
                   <img src="assets/shots/purifica-vida.jpg" alt="Página inicial com o contato pelo WhatsApp" loading="lazy" decoding="async" width="1440" height="900">
                   <figcaption>Página inicial com o contato pelo WhatsApp</figcaption>
                 </figure>
@@ -422,18 +466,17 @@ lista · inclui · remove
         <article class="entry" id="automacao-soc">
           <details>
             <summary>
-              <span class="entry__code">2024</span>
+              <span class="entry__code"><span class="entry__year">2024</span></span>
               <span class="entry__title">Automação SOC</span>
               <span class="entry__line">Script que entra no sistema de saúde ocupacional SOC e percorre as telas sozinho, para tirar da rotina uma tarefa repetitiva.</span>
               <span class="entry__stack">Python · Selenium</span>
-              <span class="scribble entry__note">foi aqui que eu peguei gosto por automatizar</span>
+              <span class="entry__note">foi aqui que eu peguei gosto por automatizar</span>
               <span class="entry__thumb entry__thumb--desktop"><img src="assets/shots/automacao-soc.jpg" alt="" loading="lazy" decoding="async" width="1440" height="900"></span>
               <span class="entry__toggle" aria-hidden="true"></span>
             </summary>
             <div class="entry__body">
               <div class="entry__grid">
                 <figure class="shot shot--desktop">
-                  <div class="shot__bar"><span class="shot__dots" aria-hidden="true"></span><span class="shot__addr">projeto00.py</span></div>
                   <img src="assets/shots/automacao-soc.jpg" alt="O script, com usuário e senha mascarados" loading="lazy" decoding="async" width="1440" height="900">
                   <figcaption>O script, com usuário e senha mascarados</figcaption>
                 </figure>
@@ -451,15 +494,16 @@ lista · inclui · remove
         </article>
 
       </div>
-    </section>
+    </div>
+  </section>
 
-    <!-- ───────────── Trajetória ───────────── -->
-    <section class="section" id="trajetoria" aria-labelledby="trajetoria-titulo">
+  <!-- ───────────── Trajetória ───────────── -->
+  <section class="band band--mist section" id="trajetoria" aria-labelledby="trajetoria-titulo">
+    <div class="wrap">
       <header class="section__head">
-        <h2 id="trajetoria-titulo">Trajetória</h2>
-        <p class="section__meta">de scripts em Python a um sistema inteiro em produção</p>
+        <h2 id="trajetoria-titulo">Trajetória.</h2>
+        <p class="section__meta">De scripts em Python a um sistema completo em produção.</p>
       </header>
-
       <ol class="timeline">
         <li>
           <span class="timeline__when">2024</span>
@@ -483,15 +527,16 @@ lista · inclui · remove
           </div>
         </li>
       </ol>
-    </section>
+    </div>
+  </section>
 
-    <!-- ───────────── Ficha técnica ───────────── -->
-    <section class="section" id="ficha" aria-labelledby="ficha-titulo">
+  <!-- ───────────── Ferramentas ───────────── -->
+  <section class="section" id="ficha" aria-labelledby="ficha-titulo">
+    <div class="wrap">
       <header class="section__head">
-        <h2 id="ficha-titulo">Ferramentas</h2>
-        <p class="section__meta">o que eu uso, e onde já usei de verdade</p>
+        <h2 id="ficha-titulo">Ferramentas.</h2>
+        <p class="section__meta">O que uso no dia a dia.</p>
       </header>
-
       <dl class="sheet">
         <div>
           <dt>Linguagens</dt>
@@ -518,7 +563,8 @@ lista · inclui · remove
           <dd>Produto de ponta a ponta. Entrego todo dia, meço, endureço e repito. Documento no README o que a próxima pessoa precisa saber para operar sem mim.</dd>
         </div>
       </dl>
-    </section>
+    </div>
+  </section>
 
     <!-- ───────────── Certificados ─────────────
          A seção aparece sozinha quando houver pelo menos um <li class="cert">.
@@ -532,35 +578,37 @@ lista · inclui · remove
            <a class="cert__link" href="assets/certificados/arquivo.pdf" target="_blank" rel="noopener">Ver certificado</a>
          </li>
     -->
-    <section class="section" id="certificados" aria-labelledby="certificados-titulo" hidden>
-      <header class="section__head">
+    <section class="band band--mist section" id="certificados" aria-labelledby="certificados-titulo" hidden>
+      <div class="wrap"><header class="section__head">
         <h2 id="certificados-titulo">Certificados</h2>
         <p class="section__meta" id="certificados-meta">cursos e formações</p>
       </header>
       <ol class="certs">
-      </ol>
+      </ol></div>
     </section>
 
-    <!-- ───────────── Contato ───────────── -->
-    <section class="section section--contact" id="contato" aria-labelledby="contato-titulo">
-      <header class="section__head">
-        <h2 id="contato-titulo">Contato</h2>
-      </header>
-      <p class="contact__lede">Tem um sistema pra construir, uma operação pra automatizar ou só quer trocar uma ideia? Me chama.</p>
-      <ul class="contact__list">
-        <li><a href="https://www.linkedin.com/in/gustavo-garcia-9012a2305/" target="_blank" rel="me noopener"><span>LinkedIn</span><span>gustavo-garcia</span></a></li>
-        <li><a href="https://github.com/gugarciac" target="_blank" rel="me noopener"><span>GitHub</span><span>gugarciac</span></a></li>
-        <li><a href="https://www.instagram.com/gugarciac/" target="_blank" rel="me noopener"><span>Instagram</span><span>@gugarciac</span></a></li>
-      </ul>
-    </section>
 
-  </main>
-</div>
+  <!-- ───────────── Contato ───────────── -->
+  <section class="section contact" id="contato" aria-labelledby="contato-titulo">
+    <div class="wrap">
+      <p class="hero__kicker">Contato</p>
+      <h2 id="contato-titulo">Vamos construir algo juntos.</h2>
+      <p class="contact__sub">Projetos, consultorias ou oportunidades. Respondo pelo LinkedIn.</p>
+      <p class="contact__actions">
+        <a class="pill pill--blue pill--lg" href="https://www.linkedin.com/in/gustavo-garcia-9012a2305/" target="_blank" rel="me noopener">LinkedIn</a>
+        <a class="pill pill--outline pill--lg" href="https://github.com/gugarciac" target="_blank" rel="me noopener">GitHub</a>
+        <a class="pill pill--outline pill--lg" href="https://www.instagram.com/gugarciac/" target="_blank" rel="me noopener">Instagram</a>
+      </p>
+    </div>
+  </section>
 
-<footer class="colophon">
-  <p>Feito à mão em São Paulo: HTML, CSS e um pouco de JavaScript, sem framework e sem etapa de build. Fontes: Recursive, Instrument Serif, Caveat e Fragment Mono.</p>
-  <p class="colophon__hi">se você leu até aqui, manda um oi</p>
-  <p><a href="https://github.com/gugarciac/gugarciac.github.io" target="_blank" rel="noopener">Código-fonte</a> · Atualizado em <time datetime="2026-09-22">22 de setembro de 2026</time></p>
+</main>
+
+<footer class="footer">
+  <div class="wrap">
+    <p>Desenvolvido em São Paulo com HTML, CSS e JavaScript, sem frameworks e sem etapa de build.</p>
+    <p><a href="https://github.com/gugarciac/gugarciac.github.io" target="_blank" rel="noopener">Código-fonte</a> · Atualizado em <time datetime="2026-09-22">22 de setembro de 2026</time></p>
+  </div>
 </footer>
 
 <script src="assets/app.js"></script>

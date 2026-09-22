@@ -1,54 +1,22 @@
 /* Gustavo Garcia · portfólio
-   Três comportamentos, nada mais: relógio de São Paulo, tema claro/escuro,
-   índice lateral que acompanha a rolagem. A abertura dos projetos é o
-   <details> nativo, com uma animação de altura por cima quando o navegador permite. */
+   Relógio de São Paulo, navegação que acompanha a seção visível, abertura
+   animada dos projetos e links que abrem um projeto direto na lista. */
 (function () {
   "use strict";
 
-  var root = document.documentElement;
   var reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-  /* ── relógio e data no fuso de São Paulo ── */
+  /* ── relógio no fuso de São Paulo ── */
   var clock = document.getElementById("relogio");
-  var today = document.getElementById("data-hoje");
   var fmtTime = new Intl.DateTimeFormat("pt-BR", { hour: "2-digit", minute: "2-digit", timeZone: "America/Sao_Paulo" });
-  var hello = document.getElementById("saudacao");
-  var fmtHour = new Intl.DateTimeFormat("pt-BR", { hour: "numeric", hourCycle: "h23", timeZone: "America/Sao_Paulo" });
-  var fmtDate = new Intl.DateTimeFormat("pt-BR", { weekday: "long", day: "numeric", month: "long", year: "numeric", timeZone: "America/Sao_Paulo" });
   function tick() {
+    if (!clock) return;
     var now = new Date();
-    if (clock) { clock.textContent = fmtTime.format(now); clock.dateTime = now.toISOString(); }
-    if (today && !today.dataset.set) { today.textContent = fmtDate.format(now); today.dateTime = now.toISOString().slice(0, 10); today.dataset.set = "1"; }
-    if (hello) {
-      var h = Number(fmtHour.format(now));
-      hello.textContent = h >= 5 && h < 12 ? "bom dia" : h >= 12 && h < 18 ? "boa tarde" : h >= 18 ? "boa noite" : "já passou da hora de dormir";
-    }
+    clock.textContent = fmtTime.format(now);
+    clock.dateTime = now.toISOString();
   }
   tick();
   setInterval(tick, 15000);
-
-  /* ── o marca-texto do título troca de cor a cada clique ── */
-  var mark = document.querySelector(".hero h1 mark");
-  if (mark) {
-    var tints = ["var(--butter)", "var(--mint)", "#c9b8ff", "#ffb3a3"];
-    var n = 0;
-    mark.title = "clica";
-    mark.addEventListener("click", function () {
-      n = (n + 1) % tints.length;
-      mark.style.setProperty("--hl", tints[n]);
-    });
-  }
-
-  /* ── tema ── */
-  var button = document.getElementById("tema");
-  if (button) {
-    button.addEventListener("click", function () {
-      var dark = root.dataset.theme === "dark" || (!root.dataset.theme && window.matchMedia("(prefers-color-scheme: dark)").matches);
-      var next = dark ? "light" : "dark";
-      root.dataset.theme = next;
-      try { localStorage.setItem("tema", next); } catch (e) {}
-    });
-  }
 
   /* ── certificados: a seção só aparece quando houver itens ── */
   var certs = document.querySelectorAll("#certificados .cert");
@@ -58,10 +26,10 @@
     var meta = document.getElementById("certificados-meta");
     if (sec) sec.hidden = false;
     if (link) link.hidden = false;
-    if (meta) meta.textContent = certs.length + (certs.length === 1 ? " certificado" : " certificados") + " · os mais recentes primeiro";
+    if (meta) meta.textContent = certs.length + (certs.length === 1 ? " certificado" : " certificados") + ", do mais recente ao mais antigo.";
   }
 
-  /* ── índice lateral segue a seção visível ── */
+  /* ── navegação global marca a seção visível ── */
   var links = Array.prototype.slice.call(document.querySelectorAll("[data-index]:not([hidden])"));
   var sections = links.map(function (a) { return document.querySelector(a.getAttribute("href")); }).filter(Boolean);
   if ("IntersectionObserver" in window && sections.length) {
@@ -69,35 +37,58 @@
     var io = new IntersectionObserver(function (entries) {
       entries.forEach(function (e) { if (e.isIntersecting) current = e.target.id; });
       links.forEach(function (a) {
-        var on = a.getAttribute("href") === "#" + current;
-        if (on) a.setAttribute("aria-current", "true"); else a.removeAttribute("aria-current");
+        if (a.getAttribute("href") === "#" + current) a.setAttribute("aria-current", "true");
+        else a.removeAttribute("aria-current");
       });
     }, { rootMargin: "-35% 0px -55% 0px" });
     sections.forEach(function (s) { io.observe(s); });
   }
 
   /* ── abertura suave dos projetos ── */
-  if (!reduceMotion && "animate" in Element.prototype) {
-    document.querySelectorAll(".entry details").forEach(function (d) {
-      var body = d.querySelector(".entry__body");
-      var summary = d.querySelector("summary");
-      if (!body || !summary) return;
-      var running = null;
-      summary.addEventListener("click", function (ev) {
-        ev.preventDefault();
-        if (running) running.cancel();
-        body.style.overflow = "hidden";
-        if (d.open) {
-          var h = body.offsetHeight;
-          running = body.animate([{ height: h + "px", opacity: 1 }, { height: "0px", opacity: 0 }], { duration: 260, easing: "cubic-bezier(0.2,0.7,0.2,1)" });
-          running.onfinish = function () { d.open = false; body.style.height = ""; body.style.overflow = ""; running = null; };
-        } else {
-          d.open = true;
-          var target = body.offsetHeight;
-          running = body.animate([{ height: "0px", opacity: 0 }, { height: target + "px", opacity: 1 }], { duration: 320, easing: "cubic-bezier(0.2,0.7,0.2,1)" });
-          running.onfinish = function () { body.style.height = ""; body.style.overflow = ""; running = null; };
-        }
-      });
+  function animateOpen(d, open) {
+    var body = d.querySelector(".entry__body");
+    if (!body || reduceMotion || !("animate" in Element.prototype)) { d.open = open; return; }
+    if (d._anim) d._anim.cancel();
+    body.style.overflow = "hidden";
+    if (!open) {
+      var h = body.offsetHeight;
+      d._anim = body.animate([{ height: h + "px", opacity: 1 }, { height: "0px", opacity: 0 }], { duration: 300, easing: "cubic-bezier(0.25,0.1,0.25,1)" });
+      d._anim.onfinish = function () { d.open = false; body.style.overflow = ""; d._anim = null; };
+    } else {
+      d.open = true;
+      var target = body.offsetHeight;
+      d._anim = body.animate([{ height: "0px", opacity: 0 }, { height: target + "px", opacity: 1 }], { duration: 420, easing: "cubic-bezier(0.16,1,0.3,1)" });
+      d._anim.onfinish = function () { body.style.overflow = ""; d._anim = null; };
+    }
+  }
+  document.querySelectorAll(".entry details").forEach(function (d) {
+    var summary = d.querySelector("summary");
+    if (!summary) return;
+    summary.addEventListener("click", function (ev) {
+      ev.preventDefault();
+      animateOpen(d, !d.open);
     });
+  });
+
+  /* ── links que abrem um projeto específico ── */
+  document.addEventListener("click", function (ev) {
+    var a = ev.target.closest && ev.target.closest("[data-open]");
+    if (!a) return;
+    var art = document.getElementById(a.getAttribute("data-open"));
+    var d = art && art.querySelector("details");
+    if (!d) return;
+    ev.preventDefault();
+    if (!d.open) animateOpen(d, true);
+    art.scrollIntoView({ behavior: reduceMotion ? "auto" : "smooth", block: "start" });
+    try { history.replaceState(null, "", "#" + art.id); } catch (e) {}
+  });
+
+  /* ── endereço com #projeto abre o projeto ── */
+  if (location.hash) {
+    var target = document.getElementById(location.hash.slice(1));
+    var det = target && target.querySelector && target.querySelector(".entry details");
+    if (!det && target && target.matches && target.matches("details")) det = target;
+    if (target && target.classList.contains("entry")) det = target.querySelector("details");
+    if (det) det.open = true;
   }
 })();
