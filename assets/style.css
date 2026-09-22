@@ -262,7 +262,8 @@ time { font-variant-numeric: tabular-nums; }
 .hero h1 mark {
   color: inherit;
   padding: 0 0.08em;
-  background: linear-gradient(176deg, transparent 52%, var(--butter) 52%, var(--butter) 90%, transparent 90%);
+  background: linear-gradient(176deg, transparent 52%, var(--hl, var(--butter)) 52%, var(--hl, var(--butter)) 90%, transparent 90%);
+  cursor: pointer;
   -webkit-box-decoration-break: clone;
   box-decoration-break: clone;
 }
