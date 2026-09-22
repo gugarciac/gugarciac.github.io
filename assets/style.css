@@ -307,3 +307,15 @@ img { max-width: 100%; }
 @media (max-width: 599px) {
   .cert { grid-template-columns: 1fr; }
 }
+
+/* ── contato ── */
+.contact { text-align: center; padding-block: calc(var(--section-gap) * 1.4); }
+.contact h2 { margin: var(--spacing-16) auto 0; max-width: 12em; font-family: var(--font-display); font-size: clamp(40px, 7vw, var(--text-hero-display)); line-height: var(--leading-hero-display); letter-spacing: -0.015em; }
+.contact__sub { margin: var(--spacing-20) auto 0; max-width: 32em; font-family: var(--font-display); font-size: clamp(19px, 2vw, 21px); line-height: 1.38; letter-spacing: 0.011em; color: var(--color-slate); }
+.contact__actions { display: flex; flex-wrap: wrap; justify-content: center; gap: var(--spacing-12); margin-top: var(--spacing-40); }
+
+/* ── rodapé ── */
+.footer { padding-block: var(--spacing-20) var(--spacing-40); background: var(--color-studio-mist); font-size: 12px; line-height: 1.33; letter-spacing: -0.12px; color: var(--color-slate); }
+.footer .wrap { display: grid; gap: var(--spacing-8); padding-top: var(--spacing-20); border-top: 1px solid var(--color-hairline-silver); }
+.footer a { color: var(--color-ink); }
+.footer { padding-bottom: calc(var(--spacing-40) + env(safe-area-inset-bottom, 0px)); }
