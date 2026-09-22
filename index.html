@@ -6,15 +6,15 @@
 <title>Gustavo Garcia</title>
 <meta name="description" content="Gustavo Garcia, desenvolvedor full stack em São Paulo. Responsável por todo o sistema do Diário de Notícias: portal, redação, agências, publicidade legal, impresso, newsletter e segurança. Projetos, trajetória e ficha técnica.">
 <meta name="color-scheme" content="light dark">
-<meta name="theme-color" content="#f5f4f8" media="(prefers-color-scheme: light)">
-<meta name="theme-color" content="#141319" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#f3f1f8" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#16141c" media="(prefers-color-scheme: dark)">
 <meta property="og:title" content="Gustavo Garcia · desenvolvedor full stack">
 <meta property="og:description" content="Um jornal inteiro rodando em código próprio. Projetos, trajetória e ficha técnica.">
 <meta property="og:type" content="website">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='4' fill='%23d23f22'/%3E%3Ctext x='16' y='22' text-anchor='middle' font-family='Georgia,serif' font-size='19' fill='white'%3EGG%3C/text%3E%3C/svg%3E">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='4' fill='%23ff5b3a'/%3E%3Ctext x='16' y='22' text-anchor='middle' font-family='Georgia,serif' font-size='19' fill='white'%3EGG%3C/text%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Recursive:slnt,wght,CASL@-15..0,300..1000,0..1&family=Instrument+Serif:ital@0;1&family=Fragment+Mono&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Recursive:slnt,wght,CASL@-15..0,300..1000,0..1&family=Instrument+Serif:ital@0;1&family=Caveat:wght@500;700&family=Fragment+Mono&display=swap">
 <link rel="stylesheet" href="assets/style.css">
 <script>
   // Aplica o tema salvo antes da primeira pintura, para não piscar.
@@ -49,7 +49,7 @@
     </nav>
 
     <div class="rail__now">
-      <p class="label">Atualmente</p>
+      <p class="label">Agora mesmo</p>
       <p>Responsável pelo desenvolvimento de todo o sistema do Diário de Notícias.</p>
     </div>
 
@@ -65,19 +65,22 @@
     <!-- ───────────── Perfil ───────────── -->
     <section class="hero" id="perfil" aria-labelledby="titulo">
       <div class="hero__text">
-        <p class="eyebrow">Desenvolvedor full stack · São Paulo</p>
-        <h1 id="titulo">Desenvolvo <em>sistemas</em> que pessoas usam todos os dias.</h1>
+        <p class="eyebrow"><span id="saudacao">oi</span> · <time id="data-hoje" datetime="">hoje</time></p>
+        <h1 id="titulo"><span class="w">Eu</span> <span class="w">faço</span> <em>sistemas</em> <span class="w">que</span> <span class="w">gente</span> <span class="w">de</span> <span class="w">verdade</span> <mark>usa todo dia.</mark></h1>
+        <p class="scribble scribble--hero" aria-hidden="true">inclusive um jornal inteiro
+          <svg viewBox="0 0 90 60" width="72" height="48"><path d="M4 8 C 30 4, 58 14, 62 34 S 52 54, 70 52" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/><path d="M62 45 L 71 52 L 61 57" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </p>
         <p class="lede">
-          Sou Gustavo Garcia. Hoje respondo por todo o software do
+          Sou o Gustavo, desenvolvedor full stack em São Paulo. Hoje cuido de todo o software do
           <a href="https://darkslategray-grasshopper-335515.hostingersite.com" target="_blank" rel="noopener">Diário de Notícias</a>:
-          portal, painel da redação, ingestão automática de agências, publicidade legal,
-          edição impressa, newsletter e segurança. Em paralelo, desenvolvo sites e aplicativos
-          para clientes e para uso próprio.
+          o portal, o painel da redação, as agências que entram sozinhas, a publicidade legal,
+          o impresso, a newsletter e a segurança de tudo isso. No tempo que sobra, faço aplicativos
+          pra resolver a minha rotina, e às vezes a dos meus amigos.
         </p>
       </div>
-      <figure class="hero__shot">
-        <img src="assets/shots/diario-de-noticias.jpg" alt="Capa do portal do Diário de Notícias" width="1440" height="900" decoding="async">
-        <figcaption>Diário de Notícias · capa do portal</figcaption>
+      <figure class="polaroid" aria-hidden="true">
+        <img src="assets/shots/diario-de-noticias.jpg" alt="" width="1440" height="900" decoding="async">
+        <figcaption>o diário, numa terça qualquer</figcaption>
       </figure>
 
       <dl class="facts">
@@ -104,7 +107,7 @@
     <section class="section" id="projetos" aria-labelledby="projetos-titulo">
       <header class="section__head">
         <h2 id="projetos-titulo">Projetos</h2>
-        <p class="section__meta">8 projetos · do mais recente ao mais antigo</p>
+        <p class="section__meta">8 coisas que eu fiz · as mais novas primeiro · clica pra abrir</p>
       </header>
 
       <div class="ledger">
@@ -116,7 +119,7 @@
               <span class="entry__title">Diário de Notícias</span>
               <span class="entry__line">A plataforma completa de um jornal: portal, redação, agências, impresso, publicidade legal, comercial, marketing e newsletter em um só sistema.</span>
               <span class="entry__stack">Next.js 15 · React 19 · TypeScript · Prisma · Tailwind 4</span>
-              <span class="entry__note">Em produção, com entregas semanais</span>
+              <span class="scribble entry__note">o maior projeto que já fiz, e ainda cresce toda semana</span>
               <span class="entry__thumb entry__thumb--desktop"><img src="assets/shots/diario-de-noticias.jpg" alt="" loading="lazy" decoding="async" width="1440" height="900"></span>
               <span class="entry__toggle" aria-hidden="true"></span>
             </summary>
@@ -174,7 +177,7 @@ newsletter ─▶ base ─▶ API     feeds · sitemaps
               <span class="entry__title">DN News</span>
               <span class="entry__line">O site da newsletter diária do Diário, com painel de assinantes ligado à base única do jornal por API com chave.</span>
               <span class="entry__stack">React · Vite · TypeScript · Tailwind · shadcn/ui · Supabase</span>
-              <span class="entry__note">Unificou duas bases de assinantes em uma só</span>
+              <span class="scribble entry__note">duas listas viraram uma. ninguém descadastra duas vezes</span>
               <span class="entry__thumb entry__thumb--desktop"><img src="assets/shots/dn-news.jpg" alt="" loading="lazy" decoding="async" width="1440" height="900"></span>
               <span class="entry__toggle" aria-hidden="true"></span>
             </summary>
@@ -224,7 +227,7 @@ lista · inclui · remove
               <span class="entry__title">Dynamic Vision</span>
               <span class="entry__line">Site de uma empresa de filmagem e fotografia com drone, em WordPress, para o cliente mostrar o portfólio de imagens aéreas e receber pedidos de orçamento.</span>
               <span class="entry__stack">WordPress · PHP · CSS</span>
-              <span class="entry__note">O cliente publica o próprio conteúdo, sem suporte técnico</span>
+              <span class="scribble entry__note">o cliente publica os vídeos sozinho. era essa a ideia</span>
               <span class="entry__thumb entry__thumb--desktop"><img src="assets/shots/dynamic-vision.jpg" alt="" loading="lazy" decoding="async" width="1440" height="900"></span>
               <span class="entry__toggle" aria-hidden="true"></span>
             </summary>
@@ -263,7 +266,7 @@ lista · inclui · remove
               <span class="entry__title">Coulero</span>
               <span class="entry__line">Site de uma agência de landing pages, com três sites de demonstração para áreas diferentes: estética, dermatologia e advocacia.</span>
               <span class="entry__stack">React · Vite · TypeScript · Tailwind · shadcn/ui</span>
-              <span class="entry__note">Primeira versão no ar; segunda em desenvolvimento</span>
+              <span class="scribble entry__note">versão 1. a 2 vem mais caprichada</span>
               <span class="entry__thumb entry__thumb--desktop"><img src="assets/shots/coulero.jpg" alt="" loading="lazy" decoding="async" width="1440" height="900"></span>
               <span class="entry__toggle" aria-hidden="true"></span>
             </summary>
@@ -316,7 +319,7 @@ lista · inclui · remove
               <span class="entry__title">Disciplina</span>
               <span class="entry__line">Aplicativo instalável de hábitos, tarefas, metas e agenda que roda inteiro no aparelho, sem servidor.</span>
               <span class="entry__stack">React sem build · Service Worker · PWA</span>
-              <span class="entry__note">Sem servidor: os dados nunca saem do aparelho</span>
+              <span class="scribble entry__note">zero servidor: seus dados não saem do celular</span>
               <span class="entry__thumb entry__thumb--phone"><img src="assets/shots/disciplina.jpg" alt="" loading="lazy" decoding="async" width="390" height="844"></span>
               <span class="entry__toggle" aria-hidden="true"></span>
             </summary>
@@ -354,7 +357,7 @@ lista · inclui · remove
               <span class="entry__title">Controle de Treinos</span>
               <span class="entry__line">Registro de musculação, cardio e corridas com progressão de carga, para um grupo de pessoas, cada uma com a própria conta.</span>
               <span class="entry__stack">HTML · CSS · JavaScript · PWA · um único arquivo</span>
-              <span class="entry__note">Em uso diário por 7 pessoas</span>
+              <span class="scribble entry__note">7 pessoas usam isso pra treinar</span>
               <span class="entry__thumb entry__thumb--phone"><img src="assets/shots/controle-de-treinos.jpg" alt="" loading="lazy" decoding="async" width="390" height="844"></span>
               <span class="entry__toggle" aria-hidden="true"></span>
             </summary>
@@ -392,7 +395,7 @@ lista · inclui · remove
               <span class="entry__title">Purifica Vida</span>
               <span class="entry__line">Página de apresentação de um serviço de encaminhamento a clínicas de recuperação, com contato direto pelo WhatsApp.</span>
               <span class="entry__stack">HTML · CSS</span>
-              <span class="entry__note">Primeiro site publicado</span>
+              <span class="scribble entry__note">o primeiro site que eu coloquei no ar</span>
               <span class="entry__thumb entry__thumb--desktop"><img src="assets/shots/purifica-vida.jpg" alt="" loading="lazy" decoding="async" width="1440" height="900"></span>
               <span class="entry__toggle" aria-hidden="true"></span>
             </summary>
@@ -423,7 +426,7 @@ lista · inclui · remove
               <span class="entry__title">Automação SOC</span>
               <span class="entry__line">Script que entra no sistema de saúde ocupacional SOC e percorre as telas sozinho, para tirar da rotina uma tarefa repetitiva.</span>
               <span class="entry__stack">Python · Selenium</span>
-              <span class="entry__note">Ponto de partida do trabalho com automação</span>
+              <span class="scribble entry__note">foi aqui que eu peguei gosto por automatizar</span>
               <span class="entry__thumb entry__thumb--desktop"><img src="assets/shots/automacao-soc.jpg" alt="" loading="lazy" decoding="async" width="1440" height="900"></span>
               <span class="entry__toggle" aria-hidden="true"></span>
             </summary>
@@ -454,7 +457,7 @@ lista · inclui · remove
     <section class="section" id="trajetoria" aria-labelledby="trajetoria-titulo">
       <header class="section__head">
         <h2 id="trajetoria-titulo">Trajetória</h2>
-        <p class="section__meta">de scripts em Python a um sistema completo em produção</p>
+        <p class="section__meta">de scripts em Python a um sistema inteiro em produção</p>
       </header>
 
       <ol class="timeline">
@@ -486,7 +489,7 @@ lista · inclui · remove
     <section class="section" id="ficha" aria-labelledby="ficha-titulo">
       <header class="section__head">
         <h2 id="ficha-titulo">Ferramentas</h2>
-        <p class="section__meta">tecnologias e práticas do dia a dia</p>
+        <p class="section__meta">o que eu uso, e onde já usei de verdade</p>
       </header>
 
       <dl class="sheet">
@@ -543,7 +546,7 @@ lista · inclui · remove
       <header class="section__head">
         <h2 id="contato-titulo">Contato</h2>
       </header>
-      <p class="contact__lede">Para projetos, consultorias ou oportunidades, entre em contato.</p>
+      <p class="contact__lede">Tem um sistema pra construir, uma operação pra automatizar ou só quer trocar uma ideia? Me chama.</p>
       <ul class="contact__list">
         <li><a href="https://www.linkedin.com/in/gustavo-garcia-9012a2305/" target="_blank" rel="me noopener"><span>LinkedIn</span><span>gustavo-garcia</span></a></li>
         <li><a href="https://github.com/gugarciac" target="_blank" rel="me noopener"><span>GitHub</span><span>gugarciac</span></a></li>
@@ -555,7 +558,8 @@ lista · inclui · remove
 </div>
 
 <footer class="colophon">
-  <p>Desenvolvido em São Paulo com HTML, CSS e JavaScript, sem frameworks e sem etapa de build. Tipografia: Recursive, Instrument Serif e Fragment Mono.</p>
+  <p>Feito à mão em São Paulo: HTML, CSS e um pouco de JavaScript, sem framework e sem etapa de build. Fontes: Recursive, Instrument Serif, Caveat e Fragment Mono.</p>
+  <p class="colophon__hi">se você leu até aqui, manda um oi</p>
   <p><a href="https://github.com/gugarciac/gugarciac.github.io" target="_blank" rel="noopener">Código-fonte</a> · Atualizado em <time datetime="2026-09-22">22 de setembro de 2026</time></p>
 </footer>
 
