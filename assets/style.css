@@ -218,35 +218,108 @@ time { font-variant-numeric: tabular-nums; }
 
 /* ── perfil ── */
 .hero {
-  padding-block: clamp(3rem, 9vh, 7rem) clamp(2.5rem, 6vh, 4rem);
+  display: grid;
+  gap: 2rem;
+  padding-block: clamp(2.5rem, 8vh, 6rem) clamp(2.5rem, 6vh, 4rem);
   border-bottom: 1px solid var(--rule);
 }
+.hero__text { min-width: 0; }
 .eyebrow {
   font-family: var(--mono);
   font-size: 0.78rem;
   color: var(--ink-3);
-  letter-spacing: 0.02em;
 }
-.eyebrow::first-letter { text-transform: uppercase; }
+#saudacao { color: var(--accent); }
 .hero h1 {
   margin-top: 1rem;
-  font-family: var(--serif);
-  font-size: clamp(2.4rem, 6.2vw, 5.1rem);
-  font-weight: 500;
-  line-height: 1.02;
-  letter-spacing: -0.015em;
-  max-width: 16ch;
+  font-family: var(--display);
+  font-size: clamp(2.5rem, 6.6vw, 5.4rem);
+  font-weight: 780;
+  font-variation-settings: "CASL" 1;
+  line-height: 0.98;
+  letter-spacing: -0.03em;
+  max-width: 13ch;
 }
+.hero h1 .w {
+  display: inline-block;
+  transition: transform 0.45s var(--boing), font-variation-settings 0.45s var(--ease), color 0.2s;
+}
+.hero h1 .w:hover {
+  transform: rotate(-5deg) translateY(-0.06em);
+  font-variation-settings: "CASL" 1, "slnt" -14, "wght" 950;
+  color: var(--cobalt);
+}
+.hero h1 em {
+  font-family: var(--serif);
+  font-style: italic;
+  font-weight: 400;
+  font-size: 1.12em;
+  letter-spacing: -0.01em;
+  color: var(--accent);
+}
+.hero h1 mark {
+  color: inherit;
+  padding: 0 0.08em;
+  background: linear-gradient(176deg, transparent 52%, var(--butter) 52%, var(--butter) 90%, transparent 90%);
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
+}
+.scribble {
+  font-family: var(--hand);
+  font-weight: 700;
+  color: var(--accent);
+  line-height: 1.1;
+}
+.scribble--hero {
+  display: inline-flex;
+  align-items: flex-start;
+  gap: 0.25rem;
+  margin: 0.6rem 0 0 clamp(0rem, 12vw, 9rem);
+  font-size: clamp(1.35rem, 2.4vw, 1.8rem);
+  transform: rotate(-3deg);
+}
+.scribble--hero svg { margin-top: 0.4rem; flex: none; }
 .lede {
-  margin-top: 1.75rem;
+  margin-top: 1.25rem;
   max-width: var(--measure);
   font-size: clamp(1.05rem, 1.4vw, 1.2rem);
   line-height: 1.6;
   color: var(--ink-2);
 }
-.lede a { color: var(--ink); text-decoration-color: var(--accent); }
+.lede a { color: var(--ink); text-decoration-color: var(--accent); text-decoration-thickness: 2px; }
+
+/* foto colada com fita */
+.polaroid {
+  position: relative;
+  margin: 0;
+  justify-self: center;
+  width: min(100%, 22rem);
+  padding: 0.6rem 0.6rem 0;
+  background: #fffefb;
+  box-shadow: var(--shadow);
+  transform: rotate(2.5deg);
+  transition: transform 0.5s var(--boing);
+}
+.polaroid:hover { transform: rotate(0deg) scale(1.02); }
+.polaroid img { display: block; width: 100%; height: auto; aspect-ratio: 16 / 10; object-fit: cover; object-position: top; }
+.polaroid figcaption { padding: 0.5rem 0.25rem 0.7rem; font-family: var(--hand); font-size: 1.3rem; color: #4d4a5c; text-align: center; }
+.polaroid::before {
+  content: "";
+  position: absolute;
+  top: -0.8rem; left: 50%;
+  width: 6.5rem; height: 1.7rem;
+  background: var(--tape);
+  transform: translateX(-50%) rotate(-4deg);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.06);
+}
+@media (min-width: 1180px) {
+  .hero { grid-template-columns: minmax(0, 1fr) 17rem; align-items: center; gap: 2.5rem; }
+  .polaroid { justify-self: end; }
+}
+
 .facts {
-  margin-top: 2.5rem;
+  grid-column: 1 / -1;
+  margin-top: 0.5rem;
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
   border-top: 1px solid var(--rule);
@@ -254,7 +327,7 @@ time { font-variant-numeric: tabular-nums; }
 .facts > div { padding: 0.9rem 1rem 0.9rem 0; border-bottom: 1px solid var(--rule); }
 .facts > div:nth-child(2n) { padding-left: 1rem; border-left: 1px solid var(--rule); }
 .facts dt { font-family: var(--mono); font-size: 0.7rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink-3); }
-.facts dd { margin: 0.3rem 0 0; font-family: var(--serif); font-size: 1.15rem; line-height: 1.25; }
+.facts dd { margin: 0.3rem 0 0; font-family: var(--display); font-weight: 620; font-variation-settings: "CASL" 1; font-size: 1.1rem; line-height: 1.25; }
 @media (max-width: 379px) {
   .facts { grid-template-columns: 1fr; }
   .facts > div:nth-child(2n) { padding-left: 0; border-left: 0; }
