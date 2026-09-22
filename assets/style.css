@@ -133,6 +133,10 @@ img { max-width: 100%; }
 .section__head h2 { font-family: var(--font-display); font-size: clamp(32px, 4.6vw, 48px); line-height: 1.08; letter-spacing: -0.003em; }
 .section__meta { margin-top: var(--spacing-12); max-width: 40em; font-size: var(--text-body); color: var(--color-slate); }
 .section__head--split { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: var(--spacing-12) var(--spacing-24); }
+@media (max-width: 379px) {
+  .lnav__actions .pill--outline { display: none; }
+  .lnav__title { font-size: 17px; }
+}
 
 /* ── destaques em carrossel ── */
 .hl {
@@ -340,7 +344,7 @@ img { max-width: 100%; }
     .section__head, .hl, .hl__controls, .reveal, .entry, .timeline li, .sheet > div, .contact .wrap > *, .cert {
       animation: gg-lift linear both;
       animation-timeline: view();
-      animation-range: entry 0% entry 80%;
+      animation-range: entry 0px entry 240px;
     }
   }
 
